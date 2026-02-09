@@ -1,0 +1,5 @@
+2026-02-09 21:35:08,292 [INFO] [global_logger] Initializing DetectModels...
+2026-02-09 21:35:11,246 [INFO] [global_logger] DetectModels initialized successfully
+2026-02-09 21:35:11,247 [INFO] [global_logger] Starting full detection pipeline
+2026-02-09 21:35:11,590 [INFO] [global_logger] Detected 1 plates in the image
+2026-02-09 21:35:11,652 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
