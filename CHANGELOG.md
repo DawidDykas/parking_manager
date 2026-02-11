@@ -2,6 +2,17 @@
 
 
 
+## v0.2.0 (2026-02-11)
+
+### Feature
+
+* feat: Add api modules, schemas and config ([`31421c9`](https://github.com/DawidDykas/parking_manager/commit/31421c952e8baf305002a2c0c9adf146ad7592c2))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/DawidDykas/parking_manager ([`1811454`](https://github.com/DawidDykas/parking_manager/commit/1811454849b0eebd690acea43b7706bcce9de895))
+
+
 ## v0.1.0 (2026-02-09)
 
 ### Ci
