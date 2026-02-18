@@ -52,8 +52,8 @@ class UserUpdate(BaseModel):
     email: Optional[EmailStr] = Field(None, example="alice.new@example.com")
     password: Optional[str] = Field(None, min_length=6, max_length=100, example="NewPass456!")
 
-class UserDelete(BaseModel):
-    id: int = Field(..., description="ID of the user to remove", example=42)
+# class UserDelete(BaseModel):
+#     id: int = Field(..., description="ID of the user to remove", example=42)
 
 class UserGetById(BaseModel):
     id: int = Field(..., description="ID of the user to retrieve", example=42)

@@ -21,7 +21,7 @@ class User(Base):
 # ------------------------
 # Product Table
 # ------------------------
-class Product(Base):
+class Drive(Base):
     __tablename__ = "products"
 
     id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
