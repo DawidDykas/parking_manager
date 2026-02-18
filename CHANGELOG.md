@@ -2,6 +2,13 @@
 
 
 
+## v0.3.0 (2026-02-18)
+
+### Feature
+
+* feat: User api ([`fd527d6`](https://github.com/DawidDykas/parking_manager/commit/fd527d62e23613ad12781cfe34f1ab34ae9358e8))
+
+
 ## v0.2.0 (2026-02-11)
 
 ### Feature
