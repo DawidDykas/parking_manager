@@ -31,6 +31,20 @@ wheels = [
 ]
 
 [[package]]
+name = "alembic"
+version = "1.18.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mako" },
+    { name = "sqlalchemy" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/94/13/8b084e0f2efb0275a1d534838844926f798bd766566b1375174e2448cd31/alembic-1.18.4.tar.gz", hash = "sha256:cb6e1fd84b6174ab8dbb2329f86d631ba9559dd78df550b57804d607672cedbc", size = 2056725, upload-time = "2026-02-10T16:00:47.195Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d2/29/6533c317b74f707ea28f8d633734dbda2119bbadfc61b2f3640ba835d0f7/alembic-1.18.4-py3-none-any.whl", hash = "sha256:a5ed4adcf6d8a4cb575f3d759f071b03cd6e5c7618eb796cb52497be25bfe19a", size = 263893, upload-time = "2026-02-10T16:00:49.997Z" },
+]
+
+[[package]]
 name = "annotated-doc"
 version = "0.0.4"
 source = { registry = "https://pypi.org/simple" }
@@ -798,6 +812,18 @@ wheels = [
 ]
 
 [[package]]
+name = "mako"
+version = "1.3.10"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "markupsafe" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz", hash = "sha256:99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28", size = 392474, upload-time = "2025-04-10T12:44:31.16Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/87/fb/99f81ac72ae23375f22b7afdb7642aba97c00a713c217124420147681a2f/mako-1.3.10-py3-none-any.whl", hash = "sha256:baef24a52fc4fc514a0887ac600f9f1cff3d82c61d4d700a1fa84d597b88db59", size = 78509, upload-time = "2025-04-10T12:50:53.297Z" },
+]
+
+[[package]]
 name = "markdown"
 version = "3.10.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1370,6 +1396,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "aiosqlite" },
+    { name = "alembic" },
     { name = "argon2-cffi" },
     { name = "black" },
     { name = "easyocr" },
@@ -1384,6 +1411,7 @@ dependencies = [
     { name = "pyjwt" },
     { name = "ruff" },
     { name = "scikit-learn" },
+    { name = "secretstr" },
     { name = "sqlalchemy" },
     { name = "tensorflow" },
     { name = "tqdm" },
@@ -1394,6 +1422,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "aiosqlite", specifier = ">=0.22.1" },
+    { name = "alembic", specifier = ">=1.18.4" },
     { name = "argon2-cffi", specifier = ">=25.1.0" },
     { name = "black", specifier = ">=26.1.0" },
     { name = "easyocr", specifier = ">=1.7.2" },
@@ -1408,6 +1437,7 @@ requires-dist = [
     { name = "pyjwt", specifier = ">=2.11.0" },
     { name = "ruff", specifier = ">=0.15.0" },
     { name = "scikit-learn", specifier = ">=1.8.0" },
+    { name = "secretstr", specifier = ">=0.1.0" },
     { name = "sqlalchemy", specifier = ">=2.0.46" },
     { name = "tensorflow", specifier = ">=2.20.0" },
     { name = "tqdm", specifier = ">=4.67.3" },
@@ -2000,6 +2030,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/ef/5e/e565bd73991d42023eb82bb99e51c5b3d9e2c588ca9d4b3e2cc1d3ca62a6/scipy-1.17.0-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:f9eb55bb97d00f8b7ab95cb64f873eb0bf54d9446264d9f3609130381233483f", size = 37457743, upload-time = "2026-01-10T21:30:34.819Z" },
     { url = "https://files.pythonhosted.org/packages/58/a8/a66a75c3d8f1fb2b83f66007d6455a06a6f6cf5618c3dc35bc9b69dd096e/scipy-1.17.0-cp314-cp314t-win_amd64.whl", hash = "sha256:1ff269abf702f6c7e67a4b7aad981d42871a11b9dd83c58d2d2ea624efbd1088", size = 37098574, upload-time = "2026-01-10T21:30:40.782Z" },
     { url = "https://files.pythonhosted.org/packages/56/a5/df8f46ef7da168f1bc52cd86e09a9de5c6f19cc1da04454d51b7d4f43408/scipy-1.17.0-cp314-cp314t-win_arm64.whl", hash = "sha256:031121914e295d9791319a1875444d55079885bbae5bdc9c5e0f2ee5f09d34ff", size = 25246266, upload-time = "2026-01-10T21:30:45.923Z" },
+]
+
+[[package]]
+name = "secretstr"
+version = "0.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6a/fb/a471dcd9000dc03166f60f7e47876f142d3996db6b4fab3cfc2235aed728/secretstr-0.1.0.tar.gz", hash = "sha256:ec310a697c9ddfe5c1e2c8c2ff8ff1857c2127ab95345715a2b124a85b8c69c4", size = 18841, upload-time = "2025-01-28T11:36:35.087Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/81/55/bec0c0a1c8c3eca5a9b2f0f6b5f2da65d65172073bcd1a4cfc08590ba23f/secretstr-0.1.0-py3-none-any.whl", hash = "sha256:f2c0598ea275b188e74d2966dc5a42456b55ebca973b045e02d0a065e663ced9", size = 2466, upload-time = "2025-01-28T11:36:33.004Z" },
 ]
 
 [[package]]

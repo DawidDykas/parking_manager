@@ -1,5 +1,4 @@
 from pydantic import BaseModel, EmailStr, Field, ConfigDict
-from typing import Optional
 from datetime import datetime
 
 # ------------------------
@@ -30,7 +29,7 @@ class UserCreate(BaseUser):
         max_length=100,
         example="SuperSecure123!"
     )
-    registration_date: Optional[datetime] = Field(
+    registration_date: None | datetime = Field(
         default_factory=datetime.utcnow,
         description="Date and time when the user registered (auto-set to now)"
     )
@@ -48,9 +47,9 @@ class UserCreate(BaseUser):
 
 class UserUpdate(BaseModel):
     id: int = Field(..., description="Identifier of the user to modify", example=42)
-    username: Optional[str] = Field(None, min_length=3, max_length=50, example="alice_new")
-    email: Optional[EmailStr] = Field(None, example="alice.new@example.com")
-    password: Optional[str] = Field(None, min_length=6, max_length=100, example="NewPass456!")
+    username: None | str = Field(None, min_length=3, max_length=50, example="alice_new")
+    email: None | EmailStr = Field(None, example="alice.new@example.com")
+    password: None | str = Field(None, min_length=6, max_length=100, example="NewPass456!")
 
 # class UserDelete(BaseModel):
 #     id: int = Field(..., description="ID of the user to remove", example=42)
@@ -103,4 +102,4 @@ class UserLogout(BaseModel):
 
 class ErrorResponse(BaseModel):
     error: str = Field(..., description="Short description of the error", example="Authentication failed")
-    detail: Optional[str] = Field(None, description="Optional detailed explanation of the error", example="Email or password is incorrect")
+    detail: None | str = Field(None, description="Optional detailed explanation of the error", example="Email or password is incorrect")

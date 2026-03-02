@@ -1,8 +1,8 @@
-from app.api.modules.database import get_engine, get_sessionmaker, init_user_db
-from fastapi import FastAPI
+from app.api.modules.database import engine, sessionmaker , init_db
+
+from fastapi import FastAPI, Depends
 from app.api.routers.user_routers import user_router
 import uvicorn
-from app.api.modules.database import user_session, user_engine
 from log_config.logger_config import logger 
 
 # Create initial user
@@ -18,42 +18,47 @@ app.include_router(user_router)
 # =========================
 # Startup event
 # =========================
-@app.on_event("startup")
-async def startup():
+from contextlib import asynccontextmanager
+from fastapi import FastAPI
+from log_config.logger_config import logger
+from app.api.modules.database import engine
+from app.api.services.user_services import UserServices
+from app.api.schemas.user_schemas import UserCreate
+
+app = FastAPI(title="Parking Manager API")
+app.include_router(user_router)
+# -------------------------
+# Lifespan context manager
+# -------------------------
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     try:
-        logger.info("Starting application – initializing database...")
-        await init_user_db(user_engine)
-        logger.info("Database initialized successfully.")
+        
+        await init_db(engine=engine)
+        async with sessionmaker() as session:
+            async with session.begin():
+                try:
+                    first_user = UserCreate(
+                        username="admin",
+                        email="admin@example.com",
+                        password="SuperSecure123!"
+                    )
+                    user = await UserServices.user_create(first_user, session)
+                    logger.info(f"First user created: {user.email}")
+                except Exception as e:
+                    logger.warning(f"First user not created (probably already exists): {e}")
+        yield  
 
-        # Create first user
-        first_user = UserCreate(
-            username="admin",
-            email="admin@example.com",
-            password="SuperSecure123!"
-        )
-
+    finally:
         try:
-            user = await UserServices.user_create(first_user)
-            logger.info(f"First user created: {user.email}")
+            logger.info("Closing database connections...")
+            await engine.dispose()
+            logger.info("Database connections closed.")
         except Exception as e:
-            logger.warning(f"First user not created (probably already exists): {e}")
+            logger.exception(f"Error during closing database connections: {e}")
 
-    except Exception as e:
-        logger.exception(f"Error during database initialization: {e}")
-
-# =========================
-# Shutdown event
-# =========================
-@app.on_event("shutdown")
-async def shutdown():
-    try:
-        logger.info("Closing database connections...")
-        await user_engine.dispose()
-        logger.info("Database connections closed.")
-    except Exception as e:
-        logger.exception(f"Error during closing database connections: {e}")
-
-
+# Przypisanie lifespan do FastAPI
+app.router.lifespan_context = lifespan
         
 
 # =========================

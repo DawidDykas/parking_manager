@@ -12,7 +12,7 @@ def wrapper_auth_user(func):
             raise HTTPException(status_code=401, detail="Invalid token format")
         
         token = authorization.split(" ")[1]
-        payload = await verify_token(token)
+        payload = verify_token(token)
         if not payload:
             logger.warning("Invalid or expired token")
             raise HTTPException(status_code=401, detail="Invalid or expired token")

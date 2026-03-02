@@ -1,22 +1,27 @@
-from fastapi import FastAPI, APIRouter, status, HTTPException, Header, Query
+from fastapi import FastAPI, APIRouter, status, HTTPException, Header, Query, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.schemas.user_schemas import * 
 from app.api.services.user_services import UserServices
 from log_config.logger_config import logger
 from pydantic import EmailStr
 from app.api.utils.auth_wrapper import wrapper_auth_user
+from app.api.modules.database import get_db
+
 
 user_router = APIRouter(prefix="/users", tags=["Users"])
 
+
 @user_router.post("/create/", response_model= UserResponse)
-async def create_user(data: UserCreate):
+async def create_user(data: UserCreate, session: AsyncSession = Depends(get_db)):
     logger.info("Create user in database")
-    return await UserServices.user_create(data)
+    return await UserServices.user_create(data, session)
+
 
 @user_router.post("/login/", response_model = str)
-async def login_user(data: UserLogin):
+async def login_user(data: UserLogin, session: AsyncSession = Depends(get_db)):
     logger.info(f"Login user :{data}")
-    return await UserServices.login(data)
+    return await UserServices.login(data, session)
+
 
 @user_router.post("/refresh")
 async def refresh_token(refresh_token: str):
@@ -24,30 +29,33 @@ async def refresh_token(refresh_token: str):
     return UserServices.refresh_token(refresh_token)
 
 
-
 @user_router.get("/by-id/{id}", response_model= UserResponse)
 @wrapper_auth_user
 async def get_user_by_id(id: int,
+                         session: AsyncSession = Depends(get_db),
                          authorization: str = Header(...)):
     
     logger.info(f"Getting user with id: {id}")
     data = UserGetById(id=id)
-    return await UserServices.user_get_by_id(data)
+    return await UserServices.user_get_by_id(data, session)
+
 
 @user_router.get("/by-email", response_model= UserResponse)
 @wrapper_auth_user
 async def get_user_by_email(email: EmailStr = Query(...),
+                            session: AsyncSession = Depends(get_db),
                             authorization: str = Header(...)):
     
     logger.info(f"Getting user with email: {email}")
     data = UserGetByEmail(email=email)
-    return await UserServices.user_get_by_email(data)
+    return await UserServices.user_get_by_email(data, session)
 
 
 @user_router.post("/update", response_model= UserResponse)
 @wrapper_auth_user
 async def user_update(data: UserUpdate,
-                            authorization: str = Header(...)):
+                      session: AsyncSession = Depends(get_db),
+                      authorization: str = Header(...)):
     
     logger.info(f"Update user with email: {data.email}")
-    return await UserServices.user_update(data)
+    return await UserServices.user_update(data, session)

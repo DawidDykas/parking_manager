@@ -7,7 +7,7 @@ from config.setting import security_settings
 
 
 
-async def create_access_token(
+def create_access_token(
     data: Dict[str, Any],
     expires_delta: Optional[timedelta] = None
 ) -> str:
@@ -34,7 +34,7 @@ async def create_access_token(
     return encoded_jwt
 
 
-async def verify_token(token: str) -> Dict[str, Any]:
+def verify_token(token: str) -> Dict[str, Any]:
     try:
         payload = jwt.decode(
             token,

@@ -1,7 +1,6 @@
 from app.api.repositories.user_repo import * 
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.schemas.user_schemas import * 
-from app.api.utils.user_wrapper import user_session_wrapper
 from log_config.logger_config import logger
 from sqlalchemy.exc import IntegrityError
 from fastapi import HTTPException
@@ -9,9 +8,8 @@ from app.api.security.security import hash_password, verify_password
 from app.api.security.jwt_auth import create_access_token, verify_token
 
 class UserServices: 
-    @user_session_wrapper
-    async def user_create(session: AsyncSession, data: UserCreate) -> UserResponse:
-        data.password = await hash_password(data.password)
+    async def user_create(data: UserCreate, session: AsyncSession) -> UserResponse:
+        data.password = hash_password(data.password)
         logger.info("Create user in database")
         try:
             user = await UserRepository.create(
@@ -28,8 +26,7 @@ class UserServices:
                 detail="Email already exists"
             )
         
-    @user_session_wrapper
-    async def user_update(session: AsyncSession, data: UserUpdate) -> UserResponse:
+    async def user_update(data: UserUpdate, session: AsyncSession) -> UserResponse:
         try:
             updated_user = await UserRepository.update(session, data)
             logger.info(f"User updated successfully: {data.id}")
@@ -40,8 +37,7 @@ class UserServices:
             raise  
 
 
-    @user_session_wrapper
-    async def user_get_by_id(session: AsyncSession, data: UserGetById) -> UserResponse:
+    async def user_get_by_id(data: UserGetById, session: AsyncSession) -> UserResponse:
         logger.info(f"Fetching user with id={data.id}")
         
         user = await UserRepository.get_by_id(session=session, data=data)
@@ -57,8 +53,7 @@ class UserServices:
         return user
 
 
-    @user_session_wrapper
-    async def user_get_by_email(session: AsyncSession, data: UserGetByEmail) -> UserResponse:
+    async def user_get_by_email(data: UserGetByEmail, session: AsyncSession) -> UserResponse:
         logger.info(f"Fetching user with email={data.email}")
         
         user = await UserRepository.get_by_email(session=session, data = data)
@@ -73,8 +68,7 @@ class UserServices:
         logger.info(f"User fetched successfully: {data.email}")
         return user
 
-    @user_session_wrapper
-    async def login(session: AsyncSession, data: UserLogin)  -> str:
+    async def login(data: UserLogin, session: AsyncSession)  -> str:
         logger.info(f"Logging user with email: {data.email}")
         user = await UserRepository.get_by_email(session = session,
                                         data = data)
@@ -84,7 +78,7 @@ class UserServices:
             logger.warning(f"Failed login attempt for email: {data.email}")
             raise HTTPException(status_code=401, detail="Invalid credentials")
 
-        token = await create_access_token({
+        token = create_access_token({
             "id": user.id,
             "username": user.username,
             "email": user.email
@@ -92,12 +86,11 @@ class UserServices:
         return token
 
 
-    @user_session_wrapper
-    async def refresh_token(session: AsyncSession, refresh_token: str) -> str:
-        payload = await verify_token(refresh_token)
+    async def refresh_token(refresh_token: str, session: AsyncSession) -> str:
+        payload = verify_token(refresh_token)
         data = UserGetById(id = payload["id"])
         user = await UserRepository.get_by_id(session=session, data = data)
-        new_access_token = await create_access_token({
+        new_access_token = create_access_token({
             "id": user.id,
             "email": user.email,
             "username": user.username

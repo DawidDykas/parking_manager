@@ -2,7 +2,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from app.api.modules.tables import User
 from app.api.schemas.user_schemas import *
-from typing import Optional, Sequence
 
 
 class UserRepository:
@@ -17,11 +16,11 @@ class UserRepository:
         user = User(
             username=data.username,
             email=data.email,
-            password=data.password,
+            password=data.password, 
             registration_date=data.registration_date
         )
         session.add(user)
-        await session.flush()
+        await session.flush() # Do walidacji id bez tego wywali
 
         return user
 
@@ -31,7 +30,7 @@ class UserRepository:
     async def get_by_id(
         session: AsyncSession,
         data: UserGetById
-    ) -> Optional[User]:
+    ) -> None | User:
 
         result = await session.execute(
             select(User).where(User.id == data.id)
@@ -42,7 +41,7 @@ class UserRepository:
     async def get_by_email(
         session: AsyncSession,
         data: UserGetByEmail
-    ) -> Optional[User]:
+    ) -> None | User:
 
         result = await session.execute(
             select(User).where(User.email == data.email)
@@ -55,7 +54,7 @@ class UserRepository:
     async def update(
         session: AsyncSession,
         data: UserUpdate
-    ) -> Optional[User]:
+    ) -> None | User:
 
         user = await UserRepository.get_by_id(session, data)
 
@@ -67,7 +66,5 @@ class UserRepository:
 
         for field, value in update_data.items():
             setattr(user, field, value)
-
-        await session.flush()
 
         return user
