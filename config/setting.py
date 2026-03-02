@@ -6,7 +6,7 @@ class DatabaseSettings(BaseSettings):
     url_database: str 
 
     model_config = SettingsConfigDict(
-        env_file = Path(__file__).resolve / "config" / ".env",
+        env_file = Path(__file__).resolve() / "config" / ".env",
         case_sensitive=False,
         extra="ignore" 
     )
@@ -17,7 +17,7 @@ class SecuritySettings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_DAYS: int
 
     model_config = SettingsConfigDict(
-        env_file = Path(__file__).resolve / "config" / ".env",
+        env_file = Path(__file__).resolve() / "config" / ".env",
         case_sensitive=False,
         extra="ignore" 
     )
