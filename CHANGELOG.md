@@ -2,6 +2,23 @@
 
 
 
+## v0.4.0 (2026-03-02)
+
+### Feature
+
+* feat: Refactoring the code ([`d3396b3`](https://github.com/DawidDykas/parking_manager/commit/d3396b325a2c60751ea2a6f7a0ff3e42f5d3f49b))
+
+### Fix
+
+* fix: fix setting path ([`2e9ee11`](https://github.com/DawidDykas/parking_manager/commit/2e9ee1165777494876131821692d3b90db51ea38))
+
+### Unknown
+
+* fix:fixed params ([`ecd66e7`](https://github.com/DawidDykas/parking_manager/commit/ecd66e70f28c05951c9e514b59fa1fe31ddff716))
+
+* fix:fixed params ([`f24e16c`](https://github.com/DawidDykas/parking_manager/commit/f24e16c7c2f170a5af7b8d35bb3f1f72d38d2fb8))
+
+
 ## v0.3.0 (2026-02-18)
 
 ### Feature
