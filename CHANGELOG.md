@@ -2,6 +2,19 @@
 
 
 
+## v0.5.0 (2026-03-06)
+
+### Feature
+
+* feat: marge ([`43dd19d`](https://github.com/DawidDykas/parking_manager/commit/43dd19da5e9ae375cae6bd0cdeb556c80ca3320e))
+
+* feat: Celery and reedis-servis ([`f397b6e`](https://github.com/DawidDykas/parking_manager/commit/f397b6ebcbca7d3874078ccc9ee13a66f66b4c9e))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/DawidDykas/parking_manager ([`504af9f`](https://github.com/DawidDykas/parking_manager/commit/504af9f6c059d3eea6adc06395eb9dcc87b97ee3))
+
+
 ## v0.4.0 (2026-03-02)
 
 ### Feature
