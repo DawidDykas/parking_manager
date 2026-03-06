@@ -192,7 +192,7 @@ class DetectModels:
         logger.debug("Preprocessing completed")
         return sharpened
 
-    def detection(self, image: np.array) -> Tuple[List[str], List[np.array]]:
+    def detection(self, image: np.array) -> None | List[str]:
         """
         Complete pipeline for plate detection and recognition.
         
@@ -200,9 +200,8 @@ class DetectModels:
             image (np.array): Input vehicle image
             
         Returns:
-            Tuple[List[str], List[np.array]]: A tuple containing:
+            List[str]: A tuple containing:
                 - List of recognized plate numbers (strings)
-                - List of cropped plate images
                 
         Notes:
             - Executes both detection and recognition steps
@@ -218,13 +217,17 @@ class DetectModels:
             return [], []
 
         plates_list = []
-        for idx, plate in enumerate(plates_images):
-            try:
-                plate_number = self.detect_digits_plates(plate)
-                plates_list.append(plate_number)
-            except Exception as e:
-                logger.warning(f"Failed to recognize plate {idx}: {e}")
-                plates_list.append("")
 
-        logger.info(f"Detection pipeline completed: {len(plates_list)} plates processed")
-        return plates_list, plates_images
+        if plates_images:
+            for idx, plate in enumerate(plates_images):
+                try:
+                    plate_number = self.detect_digits_plates(plate)
+                    plates_list.append(plate_number)
+                except Exception as e:
+                    logger.warning(f"Failed to recognize plate {idx}: {e}")
+                    plates_list.append("")
+
+            logger.info(f"Detection pipeline completed: {len(plates_list)} plates processed")
+            return plates_list
+        else: 
+            return None, None

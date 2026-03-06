@@ -1,7 +1,6 @@
 from .database import Base
 from sqlalchemy.orm import Mapped, mapped_column
 from datetime import datetime
-from typing import Optional
 
 
 # ------------------------
@@ -27,5 +26,5 @@ class Drive(Base):
     id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
     plate: Mapped[str] = mapped_column(nullable=False)
     drive_in: Mapped[datetime] = mapped_column(nullable=False)
-    drive_out: Mapped[Optional[datetime]] = mapped_column(nullable=True)
-    payment: Mapped[Optional[bool]] = mapped_column(default=False, nullable=False)
+    drive_out: Mapped[None | datetime] = mapped_column(nullable=True)
+    payment: Mapped[None | bool] = mapped_column(default=False, nullable=False)

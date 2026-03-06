@@ -7,6 +7,9 @@ from fastapi import HTTPException
 from app.api.security.security import hash_password, verify_password
 from app.api.security.jwt_auth import create_access_token, verify_token
 
+
+
+
 class UserServices: 
     async def user_create(data: UserCreate, session: AsyncSession) -> UserResponse:
         data.password = hash_password(data.password)
@@ -25,7 +28,7 @@ class UserServices:
                 status_code=409,
                 detail="Email already exists"
             )
-        
+
     async def user_update(data: UserUpdate, session: AsyncSession) -> UserResponse:
         try:
             updated_user = await UserRepository.update(session, data)

@@ -667,3 +667,1584 @@
 2026-02-18 01:39:28,946 [INFO] [global_logger] Pierwszy użytkownik utworzony: admin@example.com
 2026-02-18 01:39:48,374 [INFO] [global_logger] Login user :email='admin@example.com' password='SuperSecure123!'
 2026-02-18 01:39:48,374 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-02-19 13:51:32,229 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-19 13:51:32,666 [INFO] [global_logger] Starting application – initializing database...
+2026-02-19 13:51:32,666 [ERROR] [global_logger] Error during database initialization: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/base.py", line 3309, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 711, in checkout
+    rec = pool._do_get()
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 388, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 673, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 899, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 421, in connect
+    await_only(connection),
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/aiosqlite/core.py", line 168, in _connect
+    self._connection = await future
+                       ^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/aiosqlite/core.py", line 63, in _connection_worker_thread
+    result = function()
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/aiosqlite/core.py", line 466, in connector
+    return sqlite3.connect(loc, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/app/api/main.py", line 25, in startup
+    await init_user_db(user_engine)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/app/api/modules/database.py", line 23, in init_user_db
+    async with engine.begin() as conn:
+               ~~~~~~~~~~~~^^
+  File "/usr/lib64/python3.13/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/ext/asyncio/engine.py", line 1068, in begin
+    async with conn:
+               ^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/ext/asyncio/base.py", line 121, in __aenter__
+    return await self.start(is_ctxmanager=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/ext/asyncio/engine.py", line 275, in start
+    await greenlet_spawn(self.sync_engine.connect)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/base.py", line 3285, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/base.py", line 2448, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/base.py", line 3309, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 711, in checkout
+    rec = pool._do_get()
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/impl.py", line 175, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 388, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 673, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 899, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/pool/base.py", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/engine/default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py", line 421, in connect
+    await_only(connection),
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/aiosqlite/core.py", line 168, in _connect
+    self._connection = await future
+                       ^^^^^^^^^^^^
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/aiosqlite/core.py", line 63, in _connection_worker_thread
+    result = function()
+  File "/home/dawiddykas/Pulpit/Projekty/parking_manager/.venv/lib64/python3.13/site-packages/aiosqlite/core.py", line 466, in connector
+    return sqlite3.connect(loc, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-19 13:52:05,372 [INFO] [global_logger] Closing database connections...
+2026-02-19 13:52:05,373 [INFO] [global_logger] Database connections closed.
+2026-02-19 13:53:07,308 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-19 13:53:07,689 [INFO] [global_logger] Starting application – initializing database...
+2026-02-19 13:53:07,728 [INFO] [global_logger] Database initialized successfully.
+2026-02-19 13:53:07,783 [INFO] [global_logger] Create user in database
+2026-02-19 13:53:07,790 [INFO] [global_logger] First user created: admin@example.com
+2026-02-19 13:53:36,568 [INFO] [global_logger] Login user :email='admin@example.com' password='SuperSecure123!'
+2026-02-19 13:53:36,568 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-02-19 13:53:36,574 [INFO] [global_logger] Getting user with id: 1
+2026-02-19 13:53:36,574 [INFO] [global_logger] Fetching user with id=1
+2026-02-19 13:53:36,575 [INFO] [global_logger] User fetched successfully: 1
+2026-02-19 13:53:36,620 [INFO] [global_logger] Getting user with email: admin@example.com
+2026-02-19 13:53:36,620 [INFO] [global_logger] Fetching user with email=admin@example.com
+2026-02-19 13:53:36,622 [INFO] [global_logger] User fetched successfully: admin@example.com
+2026-02-19 13:53:41,196 [INFO] [global_logger] Login user :email='admin@example.com' password='SuperSecure123!'
+2026-02-19 13:53:41,196 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-02-19 13:53:41,199 [INFO] [global_logger] Getting user with id: 2
+2026-02-19 13:53:41,200 [INFO] [global_logger] Fetching user with id=2
+2026-02-19 13:53:41,200 [WARNING] [global_logger] User with id=2 not found
+2026-02-19 13:53:41,243 [INFO] [global_logger] Getting user with email: admin@example.com
+2026-02-19 13:53:41,243 [INFO] [global_logger] Fetching user with email=admin@example.com
+2026-02-19 13:53:41,244 [INFO] [global_logger] User fetched successfully: admin@example.com
+2026-02-19 13:54:06,154 [INFO] [global_logger] Closing database connections...
+2026-02-19 13:54:06,155 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:09:32,336 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-19 14:09:32,712 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:09:32,727 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:09:32,730 [WARNING] [global_logger] First user not created (probably already exists): cannot access local variable 'session' where it is not associated with a value
+2026-02-19 14:10:17,776 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:10:17,778 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:10:22,931 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-19 14:10:23,316 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:10:23,319 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:10:23,324 [WARNING] [global_logger] First user not created (probably already exists): cannot access local variable 'session' where it is not associated with a value
+2026-02-19 14:11:00,076 [INFO] [global_logger] Login user :email='admin@example.com' password='SuperSecure123!'
+2026-02-19 14:12:31,101 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:12:31,103 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:12:40,558 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:12:40,561 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:12:40,565 [WARNING] [global_logger] First user not created (probably already exists): cannot access local variable 'session' where it is not associated with a value
+2026-02-19 14:12:43,575 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:12:43,577 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:12:47,072 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-19 14:12:47,451 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:12:47,454 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:12:47,459 [WARNING] [global_logger] First user not created (probably already exists): cannot access local variable 'session' where it is not associated with a value
+2026-02-19 14:12:52,144 [INFO] [global_logger] Login user :email='admin@example.com' password='SuperSecure123!'
+2026-02-19 14:13:36,203 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:13:36,205 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:13:37,258 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-19 14:13:37,638 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:13:37,653 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:13:37,658 [WARNING] [global_logger] First user not created (probably already exists): cannot access local variable 'session' where it is not associated with a value
+2026-02-19 14:14:44,055 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:14:44,056 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:15:18,464 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:15:18,467 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:15:18,520 [INFO] [global_logger] Create user in database
+2026-02-19 14:15:18,530 [INFO] [global_logger] First user created: admin@example.com
+2026-02-19 14:16:25,637 [INFO] [global_logger] Login user :email='admin@example.com' password='SuperSecure123!'
+2026-02-19 14:16:25,637 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-02-19 14:16:25,643 [INFO] [global_logger] Getting user with id: 1
+2026-02-19 14:16:25,644 [INFO] [global_logger] Fetching user with id=1
+2026-02-19 14:16:25,645 [INFO] [global_logger] User fetched successfully: 1
+2026-02-19 14:16:25,688 [INFO] [global_logger] Getting user with email: admin@example.com
+2026-02-19 14:16:25,688 [INFO] [global_logger] Fetching user with email=admin@example.com
+2026-02-19 14:16:25,690 [INFO] [global_logger] User fetched successfully: admin@example.com
+2026-02-19 14:16:25,737 [INFO] [global_logger] Update user with email: alice_updated@example.com
+2026-02-19 14:16:25,740 [INFO] [global_logger] User updated successfully: 1
+2026-02-19 14:18:59,221 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:18:59,223 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:18:59,659 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:18:59,662 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:18:59,718 [INFO] [global_logger] Create user in database
+2026-02-19 14:18:59,729 [INFO] [global_logger] First user created: admin@example.com
+2026-02-19 14:21:37,722 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:21:37,723 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:21:38,215 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:21:38,218 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:21:38,281 [INFO] [global_logger] Create user in database
+2026-02-19 14:21:38,284 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:21:38,284 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:22:39,939 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:22:39,940 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:22:40,383 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:22:40,386 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:22:40,442 [INFO] [global_logger] Create user in database
+2026-02-19 14:22:40,444 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:22:40,444 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:23:01,504 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:23:01,506 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:23:01,926 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:23:01,930 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:23:01,982 [INFO] [global_logger] Create user in database
+2026-02-19 14:23:01,985 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:23:01,985 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:23:15,425 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:23:15,426 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:23:15,829 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:23:15,831 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:23:15,891 [INFO] [global_logger] Create user in database
+2026-02-19 14:23:15,893 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:23:15,893 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:23:50,487 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:23:50,488 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:23:50,926 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:23:50,928 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:23:50,984 [INFO] [global_logger] Create user in database
+2026-02-19 14:23:50,987 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:23:50,987 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:25:01,194 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:25:01,197 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:25:01,598 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:25:01,601 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:25:01,655 [INFO] [global_logger] Create user in database
+2026-02-19 14:25:01,657 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:25:01,658 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:25:12,286 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:25:12,286 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:25:12,692 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:25:12,694 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:25:12,750 [INFO] [global_logger] Create user in database
+2026-02-19 14:25:12,752 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:25:12,753 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:26:32,891 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:26:32,891 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:26:33,305 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:26:33,307 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:26:33,361 [INFO] [global_logger] Create user in database
+2026-02-19 14:26:33,364 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:26:33,364 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:26:40,689 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:26:40,691 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:26:41,105 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:26:41,108 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:26:41,161 [INFO] [global_logger] Create user in database
+2026-02-19 14:26:41,164 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:26:41,164 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:31:20,625 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:31:20,627 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:31:21,055 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:31:21,057 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:31:21,109 [INFO] [global_logger] Create user in database
+2026-02-19 14:31:21,112 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:31:21,112 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:31:49,898 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:31:49,901 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:31:50,297 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:31:50,300 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:31:50,354 [INFO] [global_logger] Create user in database
+2026-02-19 14:31:50,357 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:31:50,358 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:34:16,798 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:34:16,801 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:34:17,203 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:34:17,206 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:34:17,261 [INFO] [global_logger] Create user in database
+2026-02-19 14:34:17,263 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:34:17,264 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:34:53,172 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:34:53,174 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:34:53,633 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:34:53,636 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:34:53,698 [INFO] [global_logger] Create user in database
+2026-02-19 14:34:53,701 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:34:53,701 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:34:57,311 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:34:57,312 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:34:57,730 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:34:57,732 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:34:57,783 [INFO] [global_logger] Create user in database
+2026-02-19 14:34:57,786 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:34:57,786 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:35:13,629 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:35:13,631 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:35:14,034 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:35:14,037 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:35:14,092 [INFO] [global_logger] Create user in database
+2026-02-19 14:35:14,094 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:35:14,095 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:35:18,408 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:35:18,410 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:35:18,817 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:35:18,820 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:35:18,874 [INFO] [global_logger] Create user in database
+2026-02-19 14:35:18,876 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:35:18,877 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:38:31,731 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:38:31,732 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:38:32,150 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:38:32,153 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:38:32,211 [INFO] [global_logger] Create user in database
+2026-02-19 14:38:32,214 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:38:32,214 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:38:35,023 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:38:35,024 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:38:35,439 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:38:35,442 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:38:35,498 [INFO] [global_logger] Create user in database
+2026-02-19 14:38:35,501 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:38:35,501 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:39:43,505 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:39:43,507 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:39:43,897 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:39:43,900 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:39:43,954 [INFO] [global_logger] Create user in database
+2026-02-19 14:39:43,957 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:39:43,958 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:40:26,275 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:40:26,277 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:40:26,665 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:40:26,667 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:40:26,720 [INFO] [global_logger] Create user in database
+2026-02-19 14:40:26,722 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:40:26,722 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:41:32,705 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:41:32,706 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:41:33,128 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:41:33,131 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:41:33,189 [INFO] [global_logger] Create user in database
+2026-02-19 14:41:33,191 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:41:33,192 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:43:03,537 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:43:03,539 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:43:03,956 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:43:03,958 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:43:04,013 [INFO] [global_logger] Create user in database
+2026-02-19 14:43:04,015 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:43:04,015 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:43:39,209 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:43:39,211 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:43:39,614 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:43:39,616 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:43:39,678 [INFO] [global_logger] Create user in database
+2026-02-19 14:43:39,680 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:43:39,681 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:45:54,647 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:45:54,648 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:45:55,109 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:45:55,113 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:45:55,172 [INFO] [global_logger] Create user in database
+2026-02-19 14:45:55,174 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:45:55,175 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:46:12,522 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:46:12,524 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:46:13,000 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:46:13,002 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:46:13,063 [INFO] [global_logger] Create user in database
+2026-02-19 14:46:13,066 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:46:13,066 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:46:53,171 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:46:53,172 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:46:53,653 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:46:53,656 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:46:53,719 [INFO] [global_logger] Create user in database
+2026-02-19 14:46:53,722 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:46:53,722 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:50:01,617 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:50:01,619 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:50:02,027 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:50:02,029 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:50:02,080 [INFO] [global_logger] Create user in database
+2026-02-19 14:50:02,082 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:50:02,082 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:50:07,900 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:50:07,903 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:50:08,306 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:50:08,308 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:50:08,359 [INFO] [global_logger] Create user in database
+2026-02-19 14:50:08,362 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:50:08,363 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:52:38,893 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:52:38,895 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:52:39,281 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:52:39,284 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:52:39,336 [INFO] [global_logger] Create user in database
+2026-02-19 14:52:39,339 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:52:39,339 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 14:57:47,133 [INFO] [global_logger] Closing database connections...
+2026-02-19 14:57:47,134 [INFO] [global_logger] Database connections closed.
+2026-02-19 14:57:47,574 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 14:57:47,576 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 14:57:47,643 [INFO] [global_logger] Create user in database
+2026-02-19 14:57:47,647 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 14:57:47,647 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 15:09:37,759 [INFO] [global_logger] Closing database connections...
+2026-02-19 15:09:37,760 [INFO] [global_logger] Database connections closed.
+2026-02-19 15:09:38,236 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 15:09:38,238 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 15:09:38,296 [INFO] [global_logger] Create user in database
+2026-02-19 15:09:38,299 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 15:09:38,299 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 15:11:38,611 [INFO] [global_logger] Closing database connections...
+2026-02-19 15:11:38,612 [INFO] [global_logger] Database connections closed.
+2026-02-19 15:11:39,055 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 15:11:39,057 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 15:11:39,118 [INFO] [global_logger] Create user in database
+2026-02-19 15:11:39,120 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 15:11:39,121 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 15:13:44,442 [INFO] [global_logger] Closing database connections...
+2026-02-19 15:13:44,443 [INFO] [global_logger] Database connections closed.
+2026-02-19 15:13:44,893 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 15:13:44,896 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 15:13:44,955 [INFO] [global_logger] Create user in database
+2026-02-19 15:13:44,959 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 15:13:44,959 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 15:13:51,776 [INFO] [global_logger] Closing database connections...
+2026-02-19 15:13:51,778 [INFO] [global_logger] Database connections closed.
+2026-02-19 15:13:52,208 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 15:13:52,211 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 15:13:52,272 [INFO] [global_logger] Create user in database
+2026-02-19 15:13:52,275 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 15:13:52,275 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 15:16:28,278 [INFO] [global_logger] Closing database connections...
+2026-02-19 15:16:28,279 [INFO] [global_logger] Database connections closed.
+2026-02-19 15:16:28,718 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 15:16:28,721 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 15:16:28,787 [INFO] [global_logger] Create user in database
+2026-02-19 15:16:28,790 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 15:16:28,790 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 15:17:55,814 [INFO] [global_logger] Closing database connections...
+2026-02-19 15:17:55,816 [INFO] [global_logger] Database connections closed.
+2026-02-19 15:17:56,267 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 15:17:56,270 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 15:17:56,327 [INFO] [global_logger] Create user in database
+2026-02-19 15:17:56,330 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 15:17:56,330 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 15:18:31,420 [INFO] [global_logger] Closing database connections...
+2026-02-19 15:18:31,422 [INFO] [global_logger] Database connections closed.
+2026-02-19 15:18:31,871 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 15:18:31,873 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 15:18:31,934 [INFO] [global_logger] Create user in database
+2026-02-19 15:18:31,937 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 15:18:31,937 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 18:01:14,581 [INFO] [global_logger] Closing database connections...
+2026-02-19 18:01:14,582 [INFO] [global_logger] Database connections closed.
+2026-02-19 18:01:14,967 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 18:01:14,969 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 18:01:15,026 [INFO] [global_logger] Create user in database
+2026-02-19 18:01:15,028 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 18:01:15,029 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-19 18:01:17,838 [INFO] [global_logger] Closing database connections...
+2026-02-19 18:01:17,839 [INFO] [global_logger] Database connections closed.
+2026-02-19 18:01:18,261 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-19 18:01:18,263 [INFO] [global_logger] User database initialized successfully.
+2026-02-19 18:01:18,322 [INFO] [global_logger] Create user in database
+2026-02-19 18:01:18,325 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-19 18:01:18,325 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 00:21:49,379 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-20 00:21:50,171 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-20 00:21:50,175 [INFO] [global_logger] User database initialized successfully.
+2026-02-20 00:21:50,182 [WARNING] [global_logger] First user not created (probably already exists): UserServices.user_create() missing 1 required positional argument: 'session'
+2026-02-20 00:22:24,896 [INFO] [global_logger] Create user in database
+2026-02-20 00:22:24,896 [INFO] [global_logger] Create user in database
+2026-02-20 00:29:25,975 [INFO] [global_logger] Closing database connections...
+2026-02-20 00:29:25,979 [INFO] [global_logger] Database connections closed.
+2026-02-20 00:29:26,860 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-20 00:29:26,865 [INFO] [global_logger] User database initialized successfully.
+2026-02-20 00:29:26,873 [WARNING] [global_logger] First user not created (probably already exists): UserServices.user_create() missing 1 required positional argument: 'session'
+2026-02-20 00:30:09,805 [INFO] [global_logger] Closing database connections...
+2026-02-20 00:30:09,806 [INFO] [global_logger] Database connections closed.
+2026-02-20 00:30:10,632 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-20 00:30:10,635 [INFO] [global_logger] User database initialized successfully.
+2026-02-20 00:30:10,643 [WARNING] [global_logger] First user not created (probably already exists): UserServices.user_create() missing 1 required positional argument: 'session'
+2026-02-20 00:30:13,754 [INFO] [global_logger] Closing database connections...
+2026-02-20 00:30:13,756 [INFO] [global_logger] Database connections closed.
+2026-02-20 00:30:14,537 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-20 00:30:14,540 [INFO] [global_logger] User database initialized successfully.
+2026-02-20 00:30:14,545 [WARNING] [global_logger] First user not created (probably already exists): UserServices.user_create() missing 1 required positional argument: 'session'
+2026-02-20 00:30:23,864 [INFO] [global_logger] Create user in database
+2026-02-20 00:30:23,864 [INFO] [global_logger] Create user in database
+2026-02-20 00:30:35,634 [INFO] [global_logger] Closing database connections...
+2026-02-20 00:30:35,636 [INFO] [global_logger] Database connections closed.
+2026-02-20 00:30:39,704 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-20 00:30:40,431 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-20 00:30:40,436 [INFO] [global_logger] User database initialized successfully.
+2026-02-20 00:30:40,445 [WARNING] [global_logger] First user not created (probably already exists): UserServices.user_create() missing 1 required positional argument: 'session'
+2026-02-20 00:30:44,592 [INFO] [global_logger] Create user in database
+2026-02-20 00:30:44,592 [INFO] [global_logger] Create user in database
+2026-02-20 00:33:28,683 [INFO] [global_logger] Closing database connections...
+2026-02-20 00:33:28,685 [INFO] [global_logger] Database connections closed.
+2026-02-20 00:33:29,495 [INFO] [global_logger] Starting application – initializing user database...
+2026-02-20 00:33:29,500 [INFO] [global_logger] User database initialized successfully.
+2026-02-20 00:33:29,506 [WARNING] [global_logger] First user not created (probably already exists): UserServices.user_create() missing 1 required positional argument: 'session'
+2026-02-20 00:33:34,172 [INFO] [global_logger] Create user in database
+2026-02-20 00:33:34,257 [INFO] [global_logger] Create user in database
+2026-02-20 00:33:36,901 [INFO] [global_logger] Create user in database
+2026-02-20 00:33:36,984 [INFO] [global_logger] Create user in database
+2026-02-20 00:33:36,985 [WARNING] [global_logger] Email already exists: alissadace@example.com
+2026-02-20 00:33:47,567 [INFO] [global_logger] Login user :email='alice@example.com' password='SuperSecure123!'
+2026-02-20 00:33:47,567 [INFO] [global_logger] Logging user with email: alice@example.com
+2026-02-20 00:33:47,571 [WARNING] [global_logger] Failed login attempt for email: alice@example.com
+2026-02-20 00:34:16,325 [INFO] [global_logger] Login user :email='admin@example.com' password='SuperSecure123!'
+2026-02-20 00:34:16,325 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-02-20 00:34:16,448 [INFO] [global_logger] Getting user with id: 1
+2026-02-20 00:34:16,449 [INFO] [global_logger] Fetching user with id=1
+2026-02-20 00:34:16,451 [INFO] [global_logger] User fetched successfully: 1
+2026-02-20 00:34:16,502 [INFO] [global_logger] Getting user with email: admin@example.com
+2026-02-20 00:34:16,503 [INFO] [global_logger] Fetching user with email=admin@example.com
+2026-02-20 00:34:16,507 [INFO] [global_logger] User fetched successfully: admin@example.com
+2026-02-20 00:34:16,570 [INFO] [global_logger] Update user with email: alice_updated@example.com
+2026-02-20 00:34:16,574 [INFO] [global_logger] User updated successfully: 1
+2026-02-20 00:34:25,580 [INFO] [global_logger] Login user :email='admin@example.com' password='SuperSecure123!'
+2026-02-20 00:34:25,581 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-02-20 00:34:25,709 [INFO] [global_logger] Getting user with id: 1
+2026-02-20 00:34:25,709 [INFO] [global_logger] Fetching user with id=1
+2026-02-20 00:34:25,711 [INFO] [global_logger] User fetched successfully: 1
+2026-02-20 00:34:25,756 [INFO] [global_logger] Getting user with email: admin@example.com
+2026-02-20 00:34:25,757 [INFO] [global_logger] Fetching user with email=admin@example.com
+2026-02-20 00:34:25,759 [INFO] [global_logger] User fetched successfully: admin@example.com
+2026-02-20 00:34:25,804 [INFO] [global_logger] Update user with email: alice_updated@example.com
+2026-02-20 00:34:25,806 [INFO] [global_logger] User updated successfully: 1
+2026-02-20 00:35:54,803 [INFO] [global_logger] Login user :email='alissadace@example.com' password='SuperSecure123!'
+2026-02-20 00:35:54,803 [INFO] [global_logger] Logging user with email: alissadace@example.com
+2026-02-20 00:35:54,903 [INFO] [global_logger] Getting user with id: 1
+2026-02-20 00:35:54,903 [INFO] [global_logger] Fetching user with id=1
+2026-02-20 00:35:54,905 [INFO] [global_logger] User fetched successfully: 1
+2026-02-20 00:35:54,950 [INFO] [global_logger] Getting user with email: admin@example.com
+2026-02-20 00:35:54,951 [INFO] [global_logger] Fetching user with email=admin@example.com
+2026-02-20 00:35:54,952 [INFO] [global_logger] User fetched successfully: admin@example.com
+2026-02-20 00:35:54,998 [INFO] [global_logger] Update user with email: alice_updated@example.com
+2026-02-20 00:35:55,000 [INFO] [global_logger] User updated successfully: 1
+2026-02-20 00:36:44,669 [INFO] [global_logger] Login user :email='alissadace@example.com' password='SuperSecure123!'
+2026-02-20 00:36:44,669 [INFO] [global_logger] Logging user with email: alissadace@example.com
+2026-02-20 00:36:44,818 [INFO] [global_logger] Getting user with id: 2
+2026-02-20 00:36:44,818 [INFO] [global_logger] Fetching user with id=2
+2026-02-20 00:36:44,820 [INFO] [global_logger] User fetched successfully: 2
+2026-02-20 00:36:44,866 [INFO] [global_logger] Getting user with email: admin@example.com
+2026-02-20 00:36:44,867 [INFO] [global_logger] Fetching user with email=admin@example.com
+2026-02-20 00:36:44,868 [INFO] [global_logger] User fetched successfully: admin@example.com
+2026-02-20 00:36:44,918 [INFO] [global_logger] Update user with email: alice_updated@example.com
+2026-02-20 00:36:44,923 [INFO] [global_logger] User updated successfully: 1
+2026-02-20 00:38:38,549 [INFO] [global_logger] Login user :email='alissadace@example.com' password='SuperSecure123!'
+2026-02-20 00:38:38,549 [INFO] [global_logger] Logging user with email: alissadace@example.com
+2026-02-20 00:38:38,639 [INFO] [global_logger] Getting user with id: 1
+2026-02-20 00:38:38,639 [INFO] [global_logger] Fetching user with id=1
+2026-02-20 00:38:38,640 [INFO] [global_logger] User fetched successfully: 1
+2026-02-20 00:38:38,685 [INFO] [global_logger] Getting user with email: admin@example.com
+2026-02-20 00:38:38,686 [INFO] [global_logger] Fetching user with email=admin@example.com
+2026-02-20 00:38:38,687 [INFO] [global_logger] User fetched successfully: admin@example.com
+2026-02-20 00:38:38,731 [INFO] [global_logger] Update user with email: alice_updated@example.com
+2026-02-20 00:38:38,733 [INFO] [global_logger] User updated successfully: 1
+2026-02-20 00:47:14,667 [INFO] [global_logger] Closing database connections...
+2026-02-20 00:47:14,670 [INFO] [global_logger] Database connections closed.
+2026-02-20 00:57:51,153 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-20 00:57:51,919 [WARNING] [global_logger] First user not created (probably already exists): UserServices.user_create() missing 1 required positional argument: 'session'
+2026-02-20 01:01:38,329 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:01:38,330 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:01:39,339 [INFO] [global_logger] Create user in database
+2026-02-20 01:01:39,341 [WARNING] [global_logger] First user not created (probably already exists): 'Depends' object has no attribute 'add'
+2026-02-20 01:01:43,355 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:01:43,356 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:01:44,943 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-20 01:01:45,798 [INFO] [global_logger] Create user in database
+2026-02-20 01:01:45,800 [WARNING] [global_logger] First user not created (probably already exists): 'Depends' object has no attribute 'add'
+2026-02-20 01:03:53,801 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:03:53,802 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:03:54,738 [INFO] [global_logger] Create user in database
+2026-02-20 01:03:54,744 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:03:54,744 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:04:15,714 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:04:15,715 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:04:19,668 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-20 01:04:20,508 [INFO] [global_logger] Create user in database
+2026-02-20 01:04:20,513 [WARNING] [global_logger] First user not created (probably already exists): (sqlite3.OperationalError) no such table: users
+[SQL: INSERT INTO users (username, email, password, registration_date) VALUES (?, ?, ?, ?)]
+[parameters: ('admin', 'admin@example.com', '$argon2id$v=19$m=65536,t=3,p=4$wRijFKK0VgrBGCOE0DqnlA$Yc3yXmuoxKrZJKp1efwoOvsJA6xj1s7n9vEim+S97KI', '2026-02-20 00:04:20.427496')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-20 01:06:27,913 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:06:27,914 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:06:28,775 [INFO] [global_logger] Create user in database
+2026-02-20 01:06:28,780 [WARNING] [global_logger] First user not created (probably already exists): (sqlite3.OperationalError) no such table: users
+[SQL: INSERT INTO users (username, email, password, registration_date) VALUES (?, ?, ?, ?)]
+[parameters: ('admin', 'admin@example.com', '$argon2id$v=19$m=65536,t=3,p=4$31tr7V3L2buXknJuzVkLIQ$Th7dMA3pWQOVMM64w1lhpJWvX1kf3GeAVrQxjI5Ud1I', '2026-02-20 00:06:28.701386')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-20 01:06:33,296 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:06:33,297 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:06:34,705 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-20 01:06:35,533 [INFO] [global_logger] Create user in database
+2026-02-20 01:06:35,537 [WARNING] [global_logger] First user not created (probably already exists): (sqlite3.OperationalError) no such table: users
+[SQL: INSERT INTO users (username, email, password, registration_date) VALUES (?, ?, ?, ?)]
+[parameters: ('admin', 'admin@example.com', '$argon2id$v=19$m=65536,t=3,p=4$ROjd27vX2rvX+p8z5rx3jg$/AaeLUbPd8Db+BEzQOYHNjhIFUqc7RXgd3tB2X3dTGE', '2026-02-20 00:06:35.451816')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-20 01:08:58,185 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:08:58,188 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:08:59,234 [INFO] [global_logger] Create user in database
+2026-02-20 01:08:59,239 [WARNING] [global_logger] First user not created (probably already exists): (sqlite3.OperationalError) no such table: users
+[SQL: INSERT INTO users (username, email, password, registration_date) VALUES (?, ?, ?, ?)]
+[parameters: ('admin', 'admin@example.com', '$argon2id$v=19$m=65536,t=3,p=4$3DsnJARAaO29t5ZyTonxng$c7N55VtAaQp36bZf0JUSXSkl8Vsw8ljNtGr9NAEl7Sk', '2026-02-20 00:08:59.153619')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-20 01:09:03,455 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:09:03,456 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:09:06,085 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-02-20 01:09:06,964 [INFO] [global_logger] Create user in database
+2026-02-20 01:09:06,968 [WARNING] [global_logger] First user not created (probably already exists): (sqlite3.OperationalError) no such table: users
+[SQL: INSERT INTO users (username, email, password, registration_date) VALUES (?, ?, ?, ?)]
+[parameters: ('admin', 'admin@example.com', '$argon2id$v=19$m=65536,t=3,p=4$X6sVYsyZk9JaCyFECEFojQ$ZgD8olbihmunYBda2iWMi0BXC34TdJIiHr8N6nQittg', '2026-02-20 00:09:06.882505')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-20 01:09:18,811 [INFO] [global_logger] Create user in database
+2026-02-20 01:09:18,890 [INFO] [global_logger] Create user in database
+2026-02-20 01:09:34,891 [INFO] [global_logger] Create user in database
+2026-02-20 01:09:34,987 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:11,376 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:12:11,377 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:12:12,422 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:12,427 [INFO] [global_logger] First user created: admin@example.com
+2026-02-20 01:12:19,256 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:12:19,259 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:12:20,262 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:20,267 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:12:20,267 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:12:23,950 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:24,039 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:25,633 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:25,715 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:25,716 [WARNING] [global_logger] Email already exists: alicasde@example.com
+2026-02-20 01:12:31,516 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:31,620 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:32,679 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:32,797 [INFO] [global_logger] Create user in database
+2026-02-20 01:12:32,798 [WARNING] [global_logger] Email already exists: alicasdade@example.com
+2026-02-20 01:12:40,540 [INFO] [global_logger] Login user :email='alice@example.com' password='SuperSecure123!'
+2026-02-20 01:12:40,541 [INFO] [global_logger] Logging user with email: alice@example.com
+2026-02-20 01:12:40,547 [WARNING] [global_logger] Failed login attempt for email: alice@example.com
+2026-02-20 01:12:50,967 [INFO] [global_logger] Login user :email='alice@example.com' password='SuperSecure123!'
+2026-02-20 01:12:50,967 [INFO] [global_logger] Logging user with email: alice@example.com
+2026-02-20 01:12:50,968 [WARNING] [global_logger] Failed login attempt for email: alice@example.com
+2026-02-20 01:13:35,772 [INFO] [global_logger] Create user in database
+2026-02-20 01:13:35,865 [INFO] [global_logger] Create user in database
+2026-02-20 01:13:43,811 [INFO] [global_logger] Login user :email='alice@example.com' password='SuperSecure123!'
+2026-02-20 01:13:43,811 [INFO] [global_logger] Logging user with email: alice@example.com
+2026-02-20 01:15:19,968 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:15:19,971 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:15:20,942 [INFO] [global_logger] Create user in database
+2026-02-20 01:15:20,947 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:15:20,947 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:15:45,725 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:15:45,728 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:15:46,601 [INFO] [global_logger] Create user in database
+2026-02-20 01:15:46,606 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:15:46,606 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:16:28,848 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:16:28,849 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:16:29,715 [INFO] [global_logger] Create user in database
+2026-02-20 01:16:29,720 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:16:29,720 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:16:53,597 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:16:53,599 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:16:54,605 [INFO] [global_logger] Create user in database
+2026-02-20 01:16:54,609 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:16:54,609 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:18:44,662 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:18:44,663 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:18:45,512 [INFO] [global_logger] Create user in database
+2026-02-20 01:18:45,516 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:18:45,516 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:19:39,493 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:19:39,495 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:19:40,357 [INFO] [global_logger] Create user in database
+2026-02-20 01:19:40,362 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:19:40,362 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:20:05,141 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:20:05,143 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:20:06,003 [INFO] [global_logger] Create user in database
+2026-02-20 01:20:06,008 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:20:06,008 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:20:58,071 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:20:58,073 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:20:58,999 [INFO] [global_logger] Create user in database
+2026-02-20 01:20:59,003 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:20:59,004 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:21:17,562 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:21:17,564 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:21:18,447 [INFO] [global_logger] Create user in database
+2026-02-20 01:21:18,451 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:21:18,451 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:21:46,141 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:21:46,142 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:21:47,083 [INFO] [global_logger] Create user in database
+2026-02-20 01:21:47,087 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:21:47,087 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:24:04,628 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:24:04,630 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:24:05,535 [INFO] [global_logger] Create user in database
+2026-02-20 01:24:05,540 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:24:05,540 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:24:10,157 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:24:10,158 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:24:11,381 [INFO] [global_logger] Create user in database
+2026-02-20 01:24:11,386 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:24:11,386 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:24:14,497 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:24:14,499 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:24:15,423 [INFO] [global_logger] Create user in database
+2026-02-20 01:24:15,428 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:24:15,428 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:25:30,670 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:25:30,672 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:25:31,580 [INFO] [global_logger] Create user in database
+2026-02-20 01:25:31,584 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:25:31,584 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:27:10,215 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:27:10,216 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:27:11,114 [INFO] [global_logger] Create user in database
+2026-02-20 01:27:11,119 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:27:11,119 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:27:30,883 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:27:30,885 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:27:31,774 [INFO] [global_logger] Create user in database
+2026-02-20 01:27:31,778 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:27:31,779 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:31:29,949 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:31:29,952 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:31:30,887 [INFO] [global_logger] Create user in database
+2026-02-20 01:31:30,891 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:31:30,891 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:32:53,059 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:32:53,061 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:32:54,000 [INFO] [global_logger] Create user in database
+2026-02-20 01:32:54,005 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:32:54,005 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:33:15,279 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:33:15,281 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:33:16,147 [INFO] [global_logger] Create user in database
+2026-02-20 01:33:16,151 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:33:16,151 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:33:46,761 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:33:46,763 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:33:48,004 [INFO] [global_logger] Create user in database
+2026-02-20 01:33:48,011 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:33:48,011 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:34:35,180 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:34:35,182 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:34:36,622 [INFO] [global_logger] Create user in database
+2026-02-20 01:34:36,629 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:34:36,629 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:34:44,557 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:34:44,558 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:34:46,315 [INFO] [global_logger] Create user in database
+2026-02-20 01:34:46,322 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:34:46,322 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:35:59,778 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:35:59,779 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:36:01,144 [INFO] [global_logger] Create user in database
+2026-02-20 01:36:01,150 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:36:01,151 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:37:21,137 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:37:21,139 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:37:22,329 [INFO] [global_logger] Create user in database
+2026-02-20 01:37:22,335 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:37:22,335 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:37:42,213 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:37:42,214 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:37:43,842 [INFO] [global_logger] Create user in database
+2026-02-20 01:37:43,850 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:37:43,850 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:38:47,996 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:38:47,997 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:38:49,420 [INFO] [global_logger] Create user in database
+2026-02-20 01:38:49,427 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:38:49,427 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:39:08,799 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:39:08,801 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:39:10,572 [INFO] [global_logger] Create user in database
+2026-02-20 01:39:10,581 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:39:10,581 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:39:15,505 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:39:15,506 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:39:17,223 [INFO] [global_logger] Create user in database
+2026-02-20 01:39:17,236 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:39:17,236 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:39:31,892 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:39:31,894 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:39:34,279 [INFO] [global_logger] Create user in database
+2026-02-20 01:39:34,294 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:39:34,294 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:39:36,807 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:39:36,809 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:39:38,004 [INFO] [global_logger] Create user in database
+2026-02-20 01:39:38,011 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:39:38,012 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:41:15,581 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:41:15,583 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:41:17,010 [INFO] [global_logger] Create user in database
+2026-02-20 01:41:17,016 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:41:17,016 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-02-20 01:41:37,597 [INFO] [global_logger] Closing database connections...
+2026-02-20 01:41:37,599 [INFO] [global_logger] Database connections closed.
+2026-02-20 01:41:38,855 [INFO] [global_logger] Create user in database
+2026-02-20 01:41:38,861 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-02-20 01:41:38,862 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 16:27:29,278 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:27:33,459 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:28:21,951 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:28:27,203 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:28:55,303 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:28:59,307 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:30:06,520 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:30:10,505 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:31:33,778 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:31:37,775 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:31:37,826 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:31:39,847 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:31:39,881 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-03-04 16:31:44,146 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:31:46,714 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:31:46,764 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:31:48,790 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:31:48,932 [INFO] [global_logger] Create user in database
+2026-03-04 16:31:48,937 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 16:31:48,937 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 16:32:54,806 [INFO] [global_logger] Login user :email='alissadace@example.com' password='SuperSecure123!'
+2026-03-04 16:32:54,807 [INFO] [global_logger] Logging user with email: alissadace@example.com
+2026-03-04 16:32:54,811 [WARNING] [global_logger] Failed login attempt for email: alissadace@example.com
+2026-03-04 16:33:27,197 [INFO] [global_logger] Login user :email='admin@example.com' password='SuperSecure123!'
+2026-03-04 16:33:27,199 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-03-04 16:33:27,477 [INFO] [global_logger] Getting user with id: 1
+2026-03-04 16:33:27,477 [INFO] [global_logger] Fetching user with id=1
+2026-03-04 16:33:27,483 [INFO] [global_logger] User fetched successfully: 1
+2026-03-04 16:33:27,530 [INFO] [global_logger] Getting user with email: admin@example.com
+2026-03-04 16:33:27,531 [INFO] [global_logger] Fetching user with email=admin@example.com
+2026-03-04 16:33:27,532 [INFO] [global_logger] User fetched successfully: admin@example.com
+2026-03-04 16:33:27,580 [INFO] [global_logger] Update user with email: alice_updated@example.com
+2026-03-04 16:33:27,582 [INFO] [global_logger] User updated successfully: 1
+2026-03-04 16:44:14,710 [INFO] [global_logger] Closing database connections...
+2026-03-04 16:44:14,715 [INFO] [global_logger] Database connections closed.
+2026-03-04 16:44:18,573 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:44:20,845 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:44:20,896 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:44:23,002 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:44:23,168 [INFO] [global_logger] Create user in database
+2026-03-04 16:44:23,174 [INFO] [global_logger] First user created: admin@example.com
+2026-03-04 16:44:30,610 [INFO] [global_logger] Closing database connections...
+2026-03-04 16:44:30,612 [INFO] [global_logger] Database connections closed.
+2026-03-04 16:44:34,326 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:44:36,553 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:44:36,602 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:44:38,620 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:44:38,748 [INFO] [global_logger] Create user in database
+2026-03-04 16:44:38,751 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 16:44:38,751 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 16:45:50,402 [INFO] [global_logger] Closing database connections...
+2026-03-04 16:45:50,404 [INFO] [global_logger] Database connections closed.
+2026-03-04 16:45:55,649 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:45:58,081 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:45:58,131 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:46:00,194 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:46:00,209 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-03-04 16:46:03,714 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:46:05,946 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:46:05,997 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:46:08,017 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:46:08,161 [INFO] [global_logger] Create user in database
+2026-03-04 16:46:08,165 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 16:46:08,165 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 16:49:52,800 [INFO] [global_logger] Closing database connections...
+2026-03-04 16:49:52,801 [INFO] [global_logger] Database connections closed.
+2026-03-04 16:49:56,772 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:49:59,019 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:49:59,071 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:50:01,278 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:50:01,434 [INFO] [global_logger] Create user in database
+2026-03-04 16:50:01,440 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 16:50:01,440 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 16:52:08,756 [INFO] [global_logger] Closing database connections...
+2026-03-04 16:52:08,758 [INFO] [global_logger] Database connections closed.
+2026-03-04 16:52:12,800 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:52:18,550 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:52:26,079 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:52:28,414 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:52:28,465 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:52:30,497 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:53:34,703 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:53:38,749 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:53:38,801 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:53:40,878 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:53:40,896 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-03-04 16:53:44,415 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:53:46,663 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:53:46,717 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:53:48,902 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:53:49,057 [INFO] [global_logger] Create user in database
+2026-03-04 16:53:49,062 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 16:53:49,062 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 16:53:57,186 [INFO] [global_logger] Starting full detection pipeline
+2026-03-04 16:53:58,233 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-04 16:53:58,379 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-04 16:59:20,175 [INFO] [global_logger] Closing database connections...
+2026-03-04 16:59:20,178 [INFO] [global_logger] Database connections closed.
+2026-03-04 16:59:24,120 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:59:29,846 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:59:32,234 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:59:32,286 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:59:34,349 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:59:34,367 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-03-04 16:59:37,905 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:59:40,208 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:59:40,259 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 16:59:42,277 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 16:59:42,416 [INFO] [global_logger] Create user in database
+2026-03-04 16:59:42,420 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 16:59:42,420 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:04:40,517 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:04:40,520 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:04:44,404 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:04:46,886 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:04:46,938 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:04:49,012 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:04:49,159 [INFO] [global_logger] Create user in database
+2026-03-04 17:04:49,164 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:04:49,165 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:05:05,720 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:05:05,722 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:05:09,707 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:05:11,995 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:05:12,047 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:05:14,100 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:05:14,286 [INFO] [global_logger] Create user in database
+2026-03-04 17:05:14,291 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:05:14,291 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:06:26,525 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:06:26,527 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:06:30,416 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:06:32,664 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:06:32,715 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:06:34,728 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:06:34,866 [INFO] [global_logger] Create user in database
+2026-03-04 17:06:34,870 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:06:34,870 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:08:48,007 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:08:48,010 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:08:55,292 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:08:57,661 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:08:57,712 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:08:59,735 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:08:59,752 [INFO] [global_logger] Starting FastAPI server at http://127.0.0.1:8000
+2026-03-04 17:09:03,614 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:09:05,875 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:09:05,927 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:09:07,977 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:09:08,120 [INFO] [global_logger] Create user in database
+2026-03-04 17:09:08,124 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:09:08,124 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:14:57,464 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:14:57,465 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:15:01,448 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:15:03,697 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:15:03,751 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:15:05,813 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:15:05,969 [INFO] [global_logger] Create user in database
+2026-03-04 17:15:05,973 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:15:05,974 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:15:39,087 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:15:39,089 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:15:43,251 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:15:45,580 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:15:45,633 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:15:47,664 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:15:47,809 [INFO] [global_logger] Create user in database
+2026-03-04 17:15:47,813 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:15:47,813 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:16:25,132 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:16:25,134 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:16:29,450 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:16:33,605 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:16:40,610 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:16:42,938 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:16:42,988 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:16:45,024 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:16:45,042 [INFO] [global_logger] Starting services...
+2026-03-04 17:16:48,615 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:16:50,831 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:16:50,882 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:16:52,892 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:16:53,000 [INFO] [global_logger] Create user in database
+2026-03-04 17:16:53,005 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:16:53,005 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:17:54,403 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:17:54,405 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:17:58,705 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:18:01,018 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:18:01,069 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:18:03,678 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:18:03,802 [INFO] [global_logger] Create user in database
+2026-03-04 17:18:03,807 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:18:03,807 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:19:00,483 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:19:00,486 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:19:04,556 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:19:06,908 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:19:06,960 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:19:08,979 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:19:09,087 [INFO] [global_logger] Create user in database
+2026-03-04 17:19:09,091 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:19:09,092 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:19:09,886 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:19:12,203 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:19:12,255 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:19:14,322 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:19:14,340 [INFO] [global_logger] Starting services...
+2026-03-04 17:19:18,052 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:19:18,103 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:19:20,395 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:19:20,415 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:19:20,415 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:19:20,451 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:19:22,463 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:19:22,506 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:19:22,614 [INFO] [global_logger] Create user in database
+2026-03-04 17:19:22,619 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:19:22,619 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:21:18,237 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:21:22,283 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:21:22,334 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:21:24,413 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:21:24,431 [INFO] [global_logger] Starting services...
+2026-03-04 17:21:28,156 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:21:28,199 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:21:30,456 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:21:30,457 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:21:30,500 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:21:30,551 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:21:32,527 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:21:32,626 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:21:32,737 [INFO] [global_logger] Create user in database
+2026-03-04 17:21:32,740 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:21:32,741 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:21:47,592 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:21:47,593 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:24:26,534 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:24:30,525 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:24:30,576 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:24:32,594 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:24:32,611 [INFO] [global_logger] Starting services...
+2026-03-04 17:24:36,220 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:24:36,228 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:24:38,688 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:24:38,727 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:24:38,727 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:24:38,749 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:24:40,865 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:24:40,873 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:24:40,982 [INFO] [global_logger] Create user in database
+2026-03-04 17:24:40,987 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:24:40,987 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:26:53,430 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:26:53,434 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:26:57,614 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:27:00,060 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:27:00,116 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:27:02,198 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:27:02,323 [INFO] [global_logger] Create user in database
+2026-03-04 17:27:02,328 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:27:02,328 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:27:02,430 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:27:02,431 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:27:06,187 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:27:08,432 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:27:08,483 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:27:10,504 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:27:10,614 [INFO] [global_logger] Create user in database
+2026-03-04 17:27:10,618 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:27:10,618 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:27:27,811 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:27:27,814 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:27:31,749 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:27:33,984 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:27:34,036 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:27:36,059 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:27:36,167 [INFO] [global_logger] Create user in database
+2026-03-04 17:27:36,174 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:27:36,174 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:27:43,390 [INFO] [global_logger] Starting full detection pipeline
+2026-03-04 17:27:43,394 [ERROR] [global_logger] Failed to run YOLO prediction: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
+2026-03-04 17:28:46,033 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:28:46,036 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:28:50,083 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:28:52,366 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:28:52,418 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:28:54,484 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:28:54,596 [INFO] [global_logger] Create user in database
+2026-03-04 17:28:54,601 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:28:54,601 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:28:54,703 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:28:54,704 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:29:03,615 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:29:08,325 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:29:08,375 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:29:10,406 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:29:10,423 [INFO] [global_logger] Starting services...
+2026-03-04 17:29:14,052 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:29:14,066 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:29:16,394 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:29:16,394 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:29:16,414 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:29:16,466 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:29:18,438 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:29:18,515 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:29:18,628 [INFO] [global_logger] Create user in database
+2026-03-04 17:29:18,633 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:29:18,633 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:29:28,338 [INFO] [global_logger] Starting full detection pipeline
+2026-03-04 17:29:29,023 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-04 17:29:29,128 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-04 17:30:24,786 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:30:24,788 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:30:29,008 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:30:31,404 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:30:31,471 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:30:33,600 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:30:33,790 [INFO] [global_logger] Create user in database
+2026-03-04 17:30:33,797 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:30:33,798 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:30:33,900 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:30:33,902 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:30:37,724 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:30:40,074 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:30:40,129 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:30:42,312 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:30:42,426 [INFO] [global_logger] Create user in database
+2026-03-04 17:30:42,431 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:30:42,431 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:30:42,543 [INFO] [global_logger] Starting full detection pipeline
+2026-03-04 17:30:42,565 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-04 17:30:42,587 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-04 17:31:20,653 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:31:20,654 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:31:27,266 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:31:29,603 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:31:29,654 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:31:31,678 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:31:31,695 [INFO] [global_logger] Starting services...
+2026-03-04 17:31:35,348 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:31:35,396 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:31:37,693 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:31:37,715 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:31:37,715 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:31:37,746 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:31:39,767 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:31:39,811 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:31:39,920 [INFO] [global_logger] Create user in database
+2026-03-04 17:31:39,925 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:31:39,925 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:31:50,020 [INFO] [global_logger] Starting full detection pipeline
+2026-03-04 17:31:50,669 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-04 17:31:50,774 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-04 17:33:27,794 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:33:27,795 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:33:31,861 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:33:34,189 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:33:34,241 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:33:36,506 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:33:36,640 [INFO] [global_logger] Create user in database
+2026-03-04 17:33:36,646 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:33:36,646 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:33:36,747 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:33:36,748 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:33:40,759 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:33:43,247 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:33:43,310 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:33:45,554 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:33:45,694 [INFO] [global_logger] Create user in database
+2026-03-04 17:33:45,698 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:33:45,698 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:34:33,684 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:34:33,686 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:34:40,610 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:34:45,170 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:34:45,345 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:34:45,440 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:34:48,994 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:34:49,209 [INFO] [global_logger] Create user in database
+2026-03-04 17:34:49,219 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:34:49,219 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:34:49,322 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:34:49,325 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:34:49,390 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:34:49,537 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:34:52,290 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:34:52,320 [INFO] [global_logger] Starting services...
+2026-03-04 17:34:59,104 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:34:59,302 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:35:03,390 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:03,390 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:35:03,554 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:03,705 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:35:07,014 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:07,370 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:07,647 [INFO] [global_logger] Create user in database
+2026-03-04 17:35:07,657 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:35:07,658 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:35:24,624 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:35:24,626 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:35:32,395 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:35:34,917 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:34,980 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:35:37,191 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:37,213 [INFO] [global_logger] Starting services...
+2026-03-04 17:35:43,001 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:35:43,024 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:35:46,551 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:46,552 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:35:46,571 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:46,674 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:35:49,722 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:49,822 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:35:49,988 [INFO] [global_logger] Create user in database
+2026-03-04 17:35:49,995 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:35:49,995 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:36:00,688 [INFO] [global_logger] Starting full detection pipeline
+2026-03-04 17:36:02,027 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-04 17:36:02,181 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-04 17:37:00,057 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:37:00,060 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:37:08,639 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:37:12,957 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:37:13,044 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:37:16,656 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:37:16,828 [INFO] [global_logger] Create user in database
+2026-03-04 17:37:16,836 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:37:16,836 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:39:39,143 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:39:42,369 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:39:42,448 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:39:46,084 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:39:46,122 [INFO] [global_logger] Starting services...
+2026-03-04 17:39:53,560 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:39:53,640 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:39:57,239 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:39:57,240 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:39:57,309 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:39:57,450 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:40:00,873 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:40:01,070 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:40:01,244 [INFO] [global_logger] Create user in database
+2026-03-04 17:40:01,252 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:40:01,253 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:40:09,745 [INFO] [global_logger] Starting full detection pipeline
+2026-03-04 17:40:10,876 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-04 17:40:11,006 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-04 17:42:05,920 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:42:05,923 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:42:11,370 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:42:15,171 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:42:15,284 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:42:16,776 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:42:18,471 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:42:18,631 [INFO] [global_logger] Create user in database
+2026-03-04 17:42:18,638 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:42:18,638 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:42:19,700 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:42:19,762 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:42:21,981 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:42:22,006 [INFO] [global_logger] Starting services...
+2026-03-04 17:42:27,658 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:42:27,676 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:42:31,589 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:42:31,663 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:42:31,664 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:42:31,693 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:42:35,920 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:42:36,011 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:42:36,366 [INFO] [global_logger] Create user in database
+2026-03-04 17:42:36,377 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:42:36,378 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:42:45,859 [INFO] [global_logger] Starting full detection pipeline
+2026-03-04 17:42:46,891 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-04 17:42:47,057 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-04 17:43:21,761 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:43:21,764 [INFO] [global_logger] Database connections closed.
+2026-03-04 17:43:27,973 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:43:31,208 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:43:31,288 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:43:33,937 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:43:33,967 [INFO] [global_logger] Starting services...
+2026-03-04 17:43:40,050 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:43:40,063 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:43:43,927 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:43:43,928 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:43:43,955 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:43:44,084 [INFO] [global_logger] Initializing DetectModels...
+2026-03-04 17:43:47,425 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:43:47,569 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-04 17:43:47,829 [INFO] [global_logger] Create user in database
+2026-03-04 17:43:47,841 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-04 17:43:47,841 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-04 17:43:51,370 [INFO] [global_logger] Starting full detection pipeline
+2026-03-04 17:43:52,421 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-04 17:43:52,573 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-04 17:43:52,573 [INFO] [global_logger] Detected plate: COZJESZ
+2026-03-04 17:43:52,586 [WARNING] [global_logger] Car with plate COZJESZ has not driven out
+2026-03-04 17:43:52,588 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-04 17:44:15,954 [INFO] [global_logger] Closing database connections...
+2026-03-04 17:44:15,956 [INFO] [global_logger] Database connections closed.
+2026-03-06 18:49:32,167 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:49:35,134 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:49:35,173 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:49:36,276 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:49:36,292 [INFO] [global_logger] Starting services...
+2026-03-06 18:49:38,459 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:49:38,468 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:49:39,973 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:49:39,974 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:49:39,975 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:49:40,015 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:49:41,218 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:49:41,266 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:49:41,344 [INFO] [global_logger] Create user in database
+2026-03-06 18:49:41,346 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 18:49:41,346 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 18:50:12,540 [INFO] [global_logger] Closing database connections...
+2026-03-06 18:50:12,541 [INFO] [global_logger] Database connections closed.
+2026-03-06 18:52:37,990 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:52:40,947 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:52:40,973 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:52:42,030 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:53:21,733 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:53:24,632 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:53:24,659 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:53:25,725 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:53:25,735 [INFO] [global_logger] Starting services...
+2026-03-06 18:54:11,786 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:54:14,697 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:54:14,724 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:54:15,781 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:54:15,791 [INFO] [global_logger] Starting services...
+2026-03-06 18:56:19,100 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:22,007 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:22,034 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:23,094 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:24,999 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:26,251 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:26,251 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:27,172 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:27,369 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:28,431 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:28,466 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:29,593 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:31,531 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:32,819 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:32,819 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:33,668 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:33,989 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:34,954 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:34,982 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:36,109 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:38,325 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:39,692 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:39,693 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:40,453 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:40,961 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:41,861 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:41,891 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:43,088 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:45,332 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:46,686 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:46,686 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:47,478 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:47,844 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:48,778 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:48,806 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:49,882 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:51,807 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:53,161 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:53,161 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:54,101 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:54,298 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:55,429 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:55,458 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:56,082 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:56:57,405 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:56:57,432 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:57:05,759 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:57:06,987 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:57:07,014 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:57:19,718 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:57:20,982 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:57:21,009 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:57:47,370 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:57:48,656 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:57:48,686 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:57:53,387 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 18:57:54,665 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 18:57:54,692 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:41,978 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:43,278 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:43,305 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:44,393 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:46,516 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:46,994 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:47,850 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:47,850 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:48,391 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:48,429 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:49,415 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:49,527 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:50,033 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:51,006 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:51,037 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:52,267 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:52,387 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:53,883 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:53,883 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:54,835 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:55,027 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:56,372 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:56,373 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:57,215 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:01:58,699 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:01:58,732 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:05:33,023 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:05:33,655 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:05:34,508 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:05:34,541 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:05:35,083 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:05:35,113 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:05:35,822 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:05:45,736 [INFO] [global_logger] Create user in database
+2026-03-06 19:05:45,739 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 19:05:45,739 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 19:05:45,781 [INFO] [global_logger] Create user in database
+2026-03-06 19:05:45,783 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 19:05:45,784 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 19:05:45,784 [INFO] [global_logger] Closing database connections...
+2026-03-06 19:05:45,785 [INFO] [global_logger] Database connections closed.
+2026-03-06 19:05:45,840 [INFO] [global_logger] Closing database connections...
+2026-03-06 19:05:45,841 [INFO] [global_logger] Database connections closed.
+2026-03-06 19:05:46,085 [INFO] [global_logger] Create user in database
+2026-03-06 19:05:46,088 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 19:05:46,088 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 19:05:46,189 [INFO] [global_logger] Closing database connections...
+2026-03-06 19:05:46,190 [INFO] [global_logger] Database connections closed.
+2026-03-06 19:05:46,605 [INFO] [global_logger] Create user in database
+2026-03-06 19:05:46,608 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 19:05:46,608 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 19:05:46,710 [INFO] [global_logger] Closing database connections...
+2026-03-06 19:05:46,712 [INFO] [global_logger] Database connections closed.
+2026-03-06 19:05:46,902 [INFO] [global_logger] Create user in database
+2026-03-06 19:05:46,904 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 19:05:46,904 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 19:05:47,193 [INFO] [global_logger] Create user in database
+2026-03-06 19:05:47,195 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 19:05:47,195 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 19:08:52,688 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:08:55,680 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:08:55,723 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:08:56,774 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:09:25,505 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:09:28,385 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:09:28,412 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:09:29,465 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:10:09,148 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:10:12,036 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:10:12,063 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:10:13,130 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:10:13,139 [INFO] [global_logger] Starting Celery worker...
+2026-03-06 19:10:15,099 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:10:15,140 [INFO] [global_logger] Starting FastAPI...
+2026-03-06 19:10:16,353 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:10:16,354 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:10:17,223 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:10:17,482 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:10:18,470 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:10:18,498 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:10:19,581 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:10:19,655 [INFO] [global_logger] Create user in database
+2026-03-06 19:10:19,657 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 19:10:19,658 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 19:10:55,251 [INFO] [global_logger] Closing database connections...
+2026-03-06 19:10:55,251 [INFO] [global_logger] Database connections closed.
+2026-03-06 19:10:55,294 [INFO] [global_logger] Stopping services...
+2026-03-06 19:11:16,696 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:11:19,582 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:11:19,608 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:11:20,662 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:11:20,671 [INFO] [global_logger] Starting Celery worker...
+2026-03-06 19:11:22,539 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:11:22,672 [INFO] [global_logger] Starting FastAPI...
+2026-03-06 19:11:23,769 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:11:23,769 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:11:24,719 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:11:24,873 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:11:25,980 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:11:26,012 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 19:11:27,087 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 19:11:27,158 [INFO] [global_logger] Create user in database
+2026-03-06 19:11:27,160 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 19:11:27,160 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 20:22:05,771 [INFO] [global_logger] Starting full detection pipeline
+2026-03-06 20:22:06,874 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-06 20:22:06,984 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-06 20:22:06,984 [INFO] [global_logger] Detected plate: POLATAM
+2026-03-06 20:22:56,432 [INFO] [global_logger] Starting full detection pipeline
+2026-03-06 20:22:56,466 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-06 20:22:56,483 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-06 20:22:56,483 [INFO] [global_logger] Detected plate: POLATAM
+2026-03-06 20:22:56,486 [WARNING] [global_logger] Car with plate POLATAM has not driven out
+2026-03-06 20:22:56,487 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-06 20:24:35,006 [INFO] [global_logger] Starting full detection pipeline
+2026-03-06 20:24:35,113 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-06 20:24:35,173 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-06 20:24:35,173 [INFO] [global_logger] Detected plate: B 2228HM
+2026-03-06 20:26:18,476 [INFO] [global_logger] Starting full detection pipeline
+2026-03-06 20:26:18,582 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-06 20:26:18,643 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-06 20:26:18,643 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-06 20:27:05,611 [INFO] [global_logger] Closing database connections...
+2026-03-06 20:27:05,614 [INFO] [global_logger] Database connections closed.
+2026-03-06 20:27:09,416 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 20:27:11,658 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 20:27:11,710 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 20:27:13,758 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 20:27:13,866 [INFO] [global_logger] Create user in database
+2026-03-06 20:27:13,870 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 20:27:13,870 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-06 20:59:18,114 [INFO] [global_logger] Closing database connections...
+2026-03-06 20:59:18,116 [INFO] [global_logger] Database connections closed.
+2026-03-06 20:59:21,993 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 20:59:24,262 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 20:59:24,322 [INFO] [global_logger] Initializing DetectModels...
+2026-03-06 20:59:26,358 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-06 20:59:26,477 [INFO] [global_logger] Create user in database
+2026-03-06 20:59:26,484 [WARNING] [global_logger] Email already exists: admin@example.com
+2026-03-06 20:59:26,484 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists

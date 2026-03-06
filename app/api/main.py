@@ -1,3 +1,5 @@
+import time
+
 from app.api.modules.database import engine, sessionmaker , init_db
 
 from fastapi import FastAPI, Depends
@@ -24,9 +26,11 @@ from log_config.logger_config import logger
 from app.api.modules.database import engine
 from app.api.services.user_services import UserServices
 from app.api.schemas.user_schemas import UserCreate
+from app.api.routers.drive_routers import drive_router
 
 app = FastAPI(title="Parking Manager API")
 app.include_router(user_router)
+app.include_router(drive_router)
 # -------------------------
 # Lifespan context manager
 # -------------------------
@@ -64,6 +68,22 @@ app.router.lifespan_context = lifespan
 # =========================
 # Run server
 # =========================
+
+from app.api.run_all import start_celery, start_fastapi
+
 if __name__ == "__main__":
-    logger.info("Starting FastAPI server at http://127.0.0.1:8000")
-    uvicorn.run("app.api.main:app", host="127.0.0.1", port=8000, reload=True)
+    logger.info("Starting Celery worker...")
+    celery_process = start_celery()
+
+    time.sleep(2)
+
+    logger.info("Starting FastAPI...")
+    fastapi_process = start_fastapi()
+
+    try:
+        celery_process.wait()
+        fastapi_process.wait()
+    except KeyboardInterrupt:
+        logger.info("Stopping services...")
+        celery_process.terminate()
+        fastapi_process.terminate()
