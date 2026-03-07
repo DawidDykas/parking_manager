@@ -2,6 +2,17 @@
 
 
 
+## v0.6.0 (2026-03-07)
+
+### Feature
+
+* feat: Alembic init migrations ([`8000d87`](https://github.com/DawidDykas/parking_manager/commit/8000d871fe0b65b82b9c5b0e900b1984343d1467))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/DawidDykas/parking_manager ([`4a0851c`](https://github.com/DawidDykas/parking_manager/commit/4a0851ca41c18b27b6119b4d9618645549661761))
+
+
 ## v0.5.0 (2026-03-06)
 
 ### Feature
