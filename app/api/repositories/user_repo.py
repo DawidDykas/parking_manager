@@ -33,7 +33,7 @@ class UserRepository:
     ) -> None | User:
 
         result = await session.execute(
-            select(User).where(User.id == data.id)
+            select(User).where(User.id == data.id) 
         )
         return result.scalar_one_or_none()
 

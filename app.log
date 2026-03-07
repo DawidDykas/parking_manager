@@ -2248,3 +2248,401 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open datab
 2026-03-06 20:59:26,477 [INFO] [global_logger] Create user in database
 2026-03-06 20:59:26,484 [WARNING] [global_logger] Email already exists: admin@example.com
 2026-03-06 20:59:26,484 [WARNING] [global_logger] First user not created (probably already exists): 409: Email already exists
+2026-03-07 18:41:52,348 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:41:53,758 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:41:53,798 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:41:54,877 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:43:45,938 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:43:47,319 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:43:47,350 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:43:48,426 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:45:34,171 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:45:35,533 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:45:35,567 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:45:36,696 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:49:08,961 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:49:10,296 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:49:10,326 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:49:11,402 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:50:42,401 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:50:43,740 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:50:43,770 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:50:44,850 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:50:46,835 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:50:48,097 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:50:48,097 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:50:48,938 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:50:49,234 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:50:50,194 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:50:50,222 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:50:51,291 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:51:37,426 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:51:38,771 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:51:38,802 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:51:39,884 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:51:41,886 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:51:43,090 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:51:43,090 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:51:44,155 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:51:46,815 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:51:48,013 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 18:51:48,041 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 18:51:49,104 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:00:57,181 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:00:58,538 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:00:58,568 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:00:59,652 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:01:02,120 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:01:03,387 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:01:03,387 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:01:04,131 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:01:04,519 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:01:05,371 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:01:05,400 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:01:06,466 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:01:51,320 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:01:52,657 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:01:52,687 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:01:53,767 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:01:56,034 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:01:57,227 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:01:57,227 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:01:58,292 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:02:01,050 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:02:02,263 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:02:02,291 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:02:03,360 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:05:03,426 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:05:04,760 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:05:04,791 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:05:05,868 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:05:13,122 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:05:14,334 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:05:14,334 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:05:15,390 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:05:18,180 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:05:19,440 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:05:19,468 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:05:20,537 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:28,221 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:29,559 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:29,589 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:30,661 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:38,018 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:39,229 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:39,229 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:40,375 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:43,169 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:44,460 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:44,488 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:45,578 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:49,373 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:50,733 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:50,764 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:51,848 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:56,169 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:57,463 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:57,464 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:58,339 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:06:58,600 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:59,593 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:06:59,622 [INFO] [global_logger] Initializing DetectModels...
+2026-03-07 19:07:00,696 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-07 19:07:26,816 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:27,510 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:27,582 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:27,583 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:34,025 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:34,032 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:34,045 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:34,045 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:34,047 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:34,047 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:40,642 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:40,651 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:40,664 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:40,664 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:40,665 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:40,666 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:41,877 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:41,883 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:41,895 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:41,895 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:41,896 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:41,896 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:42,446 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:42,453 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:42,464 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:42,464 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:42,465 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:42,466 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:42,857 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:42,864 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:42,877 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:42,877 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:42,878 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:42,878 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:43,179 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:43,186 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:43,199 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:43,199 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:43,200 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:43,201 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:43,460 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:43,467 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:43,478 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:43,478 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:43,479 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:43,480 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:43,682 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:43,689 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:43,700 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:43,700 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:43,702 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:43,703 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:44,016 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:44,023 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:44,036 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:44,036 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:44,038 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:44,039 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:44,195 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:44,202 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:44,213 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:44,213 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:44,215 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:44,215 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:44,351 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:44,358 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:44,369 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:44,369 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:44,370 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:44,371 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:44,620 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:44,627 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:44,638 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:44,638 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:44,640 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:44,640 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:44,765 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:44,771 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:44,782 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:44,783 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:44,784 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:44,785 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:45,050 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:45,057 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:45,069 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:45,069 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:45,070 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:45,071 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:45,207 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:45,214 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:45,225 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:45,225 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:45,227 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:45,227 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:45,337 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:45,344 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:45,356 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:45,356 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:45,357 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:45,358 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:45,486 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:45,494 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:45,505 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:45,505 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:45,507 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:45,507 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:46,034 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:46,041 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:46,052 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:46,053 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:46,054 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:46,055 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:46,199 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:46,206 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:46,217 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:46,217 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:46,218 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:46,218 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:46,327 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:46,336 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:46,348 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:46,348 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:46,349 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:46,350 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:46,440 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:46,447 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:46,458 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:46,458 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:46,460 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:46,460 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:46,563 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:46,570 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:46,581 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:46,581 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:46,582 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:46,583 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:46,683 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:46,690 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:46,702 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:46,702 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:46,703 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:46,703 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:46,807 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:46,813 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:46,824 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:46,824 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:46,826 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:46,826 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:46,940 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:46,947 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:46,959 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:46,959 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:46,960 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:46,961 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:47,060 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:47,067 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:47,078 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:47,078 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:47,080 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:47,080 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:47,186 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:47,193 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:47,205 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:47,205 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:47,206 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:47,207 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:47,298 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:47,305 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:47,316 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:47,316 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:47,317 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:47,318 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:47,435 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:47,442 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:47,453 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:47,453 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:47,455 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:47,455 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:47,550 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:47,557 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:47,568 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:47,568 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:47,569 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:47,570 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:47,679 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:47,686 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:47,698 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:47,698 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:47,700 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:47,700 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:47,799 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:47,805 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:47,816 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:47,816 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:47,817 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:47,818 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:47,927 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:47,934 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:47,945 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:47,945 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:47,946 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:47,947 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:48,040 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:48,046 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:48,057 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:48,058 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:48,058 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:48,059 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:48,171 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:48,178 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:48,189 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:48,190 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:48,191 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:48,191 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:48,313 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:48,320 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:48,332 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:48,332 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:48,333 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:48,333 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:48,413 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:48,420 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:48,431 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:48,431 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:48,432 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:48,432 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:48,548 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:48,555 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:48,567 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:48,568 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:48,569 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:48,569 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:48,677 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:48,683 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:48,697 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:48,697 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:48,699 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:48,699 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:48,793 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:48,804 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:48,819 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:48,819 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:48,820 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:48,821 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:48,913 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:48,921 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:48,934 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:48,934 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:48,935 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:48,935 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:49,053 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:49,060 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:49,073 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:49,073 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:49,074 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:49,074 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:49,263 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:49,273 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:49,287 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:49,287 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:49,288 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:49,288 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:49,378 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:49,385 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:49,398 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:49,398 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:49,400 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:49,400 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:49,484 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:49,490 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:49,502 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:49,502 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:49,503 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:49,504 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:49,610 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:49,620 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:49,633 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:49,633 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:49,634 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:49,635 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:49,724 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:49,733 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:49,746 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:49,746 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:49,747 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:49,748 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:49,872 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:49,879 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:49,892 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:49,892 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:49,893 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:49,893 [INFO] [global_logger] Access denid - verify in drive failed
+2026-03-07 19:07:49,963 [INFO] [global_logger] Starting full detection pipeline
+2026-03-07 19:07:49,970 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-07 19:07:49,981 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-07 19:07:49,982 [INFO] [global_logger] Detected plate: MN 8633M
+2026-03-07 19:07:49,983 [WARNING] [global_logger] Car with plate MN 8633M has not driven out
+2026-03-07 19:07:49,983 [INFO] [global_logger] Access denid - verify in drive failed
