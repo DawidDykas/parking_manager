@@ -21,7 +21,7 @@ class DriveIn(BaseDrive):
         example= True
     )
 
-class DriveUpdate():
+class DriveUpdate(BaseModel):
     plate: None | str = Field(
         None,
         description="Plate of car ",
@@ -40,7 +40,7 @@ class DriveUpdate():
         example="2026-02-11T17:30:00"
     )
 
-    payment: bool = Field(
+    payment: None | bool = Field(
         False, 
         description="Payment",
         example= True
@@ -56,10 +56,12 @@ class DateRange(BaseModel):
 
 
 
+
 class DriveResponse(BaseModel):
     id: int = Field(..., description="Unique identifier assigned to the drive", example=42)
+    plate: str = Field(..., description="License plate of the car", example="B 2228HM")
     drive_in: datetime = Field(..., description="Timestamp when the drive in registered")
-    drive_out: datetime = Field(..., description="Timestamp when the drive out in registered")
+    drive_out: None | datetime = Field(None, description="Timestamp when the drive out in registered")
     payment: bool = Field(..., description="Payment status")
 
     model_config = ConfigDict(
@@ -67,11 +69,10 @@ class DriveResponse(BaseModel):
         json_schema_extra={
             "example": {
                 "id": 42,
-                "plate": "alice_wonder1234",
+                "plate": "B 2228HM",
                 "drive_in": "2026-02-11T15:30:00",
-                "drive_out": "2026-02-11T15:30:00",
-                "payment": "False",
+                "drive_out": None,
+                "payment": False,
             }
         }
     )
-

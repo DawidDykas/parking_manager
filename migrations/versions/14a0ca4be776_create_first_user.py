@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.orm import Session  
 from app.api.modules.tables import User
 from datetime import datetime
-
+from app.api.security.jwt_auth import hash_password
 
 # revision identifiers, used by Alembic.
 revision: str = '14a0ca4be776'
@@ -27,7 +27,7 @@ def upgrade():
     admin = User(
         username="admin",
         email="admin@example.com",
-        password="hashed_passworSuperSecure123d",
+        password=hash_password(password= "hashed_passworSuperSecure123d"),
         registration_date=datetime.utcnow()
     )
 

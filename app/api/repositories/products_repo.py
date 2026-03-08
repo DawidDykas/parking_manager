@@ -48,12 +48,22 @@ class DriveRepository:
 
 
 
-    async def update_drive(session: AsyncSession, 
-                           data: DriveUpdate) -> None | Drive:
-        
-        drive = await DriveRepository.get_by_plate(session, data.plate)
+    async def update_drive(
+        session: AsyncSession,
+        drive_id: int,
+        data: DriveUpdate
+    ) -> Drive | None:
+
+
+        result = await session.execute(
+            select(Drive).where(Drive.id == drive_id)
+        )
+        drive = result.scalar_one_or_none()
+
+
         if not drive:
             return None
+
         update_data = data.model_dump(exclude_unset=True)
 
         for field, value in update_data.items():
@@ -63,3 +73,20 @@ class DriveRepository:
         return drive
 
     
+
+
+    async def get_by_id(session: AsyncSession, 
+                        drive_id: int) -> Drive | None:
+        result = await session.execute(
+            select(Drive).where(Drive.id == drive_id)
+        )
+        return result.scalars().first()
+    
+    async def delete_drive(session: AsyncSession,
+                           drive_id: int) -> None:
+        drive = await DriveRepository.get_by_id(session, drive_id)
+        if drive:
+            await session.delete(drive)
+            await session.flush()
+            return True
+        return False

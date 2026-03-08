@@ -14,15 +14,37 @@ from app.api.services.utils import with_session
 prediction = DetectModels(detect_car_plates_model_path = "app/models/best.pt")
 
 class DriveServices: 
-
-    @staticmethod
     @with_session
-    async def create(session: AsyncSession, 
+    async def update_drive_celery(session: AsyncSession, 
+                           drive_id: int, 
+                           data: DriveUpdate) -> None | Drive:
+        
+        logger.info(f"Updating drive with id: {drive_id}")
+
+        drive = await DriveRepository.update_drive(drive_id = drive_id,
+                                                   session = session,
+                                                   data=data)
+        if not drive:
+            logger.warning(f"Drive with id: {drive_id} not found")
+            return None
+        else:
+            logger.info(f"Drive with id: {drive_id} updated successfully")
+            return drive
+
+    @with_session    
+    async def create_celery(session: AsyncSession, 
                      data: DriveIn) -> None | Drive:
         return await DriveRepository.create(session, data)
     
 
+    @with_session    
+    async def get_drives_by_plate_celery(session: AsyncSession, 
+                                  plate: str) -> list[Drive]:
 
+        logger.info(f"Getting drives with plate: {plate}")
+        return await DriveRepository.get_by_plate(session=session, 
+                                                 data=DriveGetByPlate(plate=plate))
+    
 
     @staticmethod
     @with_session
@@ -75,3 +97,68 @@ class DriveServices:
         logger.info("Authorization drive out complete access permision") 
         return True 
 
+
+# ################################################
+
+    async def create(session: AsyncSession, 
+                     data: DriveIn) -> None | Drive:
+        return await DriveRepository.create(session, data)
+
+
+    async def get_drive_by_id(session: AsyncSession, 
+                              drive_id: int) -> Drive | None:
+        logger.info(f"Getting drive with id: {drive_id}")
+        return await DriveRepository.get_by_id(session=session, drive_id = drive_id)
+    
+    async def delete_drive(session: AsyncSession, 
+                           drive_id: int) -> bool:
+        logger.info(f"Deleting drive with id: {drive_id}")
+        status = await DriveRepository.delete_drive(session=session, 
+                                                    drive_id = drive_id)
+        if not status:
+            logger.warning(f"Drive with id: {drive_id} not found")
+            return False
+        else:
+            logger.info(f"Drive with id: {drive_id} deleted successfully")
+            return True
+
+    async def get_drives_by_date_range(session: AsyncSession,
+                                      start_date: datetime, 
+                                      end_date: datetime) -> list[Drive]:
+
+        logger.info(f"Getting drives with date range: {start_date} - {end_date}")
+        return await DriveRepository.get_by_date_range(session=session, 
+                                                        date_range=DateRange(start_date=start_date, end_date=end_date))
+        
+    async def get_drives_by_plate(session: AsyncSession, 
+                                  plate: str) -> list[Drive]:
+
+        logger.info(f"Getting drives with plate: {plate}")
+        return await DriveRepository.get_by_plate(session=session, 
+                                                 data=DriveGetByPlate(plate=plate))
+    
+    async def get_drives_by_date_range(session: AsyncSession,
+                                      start_date: datetime, 
+                                      end_date: datetime) -> list[Drive]:
+
+        logger.info(f"Getting drives with date range: {start_date} - {end_date}")
+        return await DriveRepository.get_by_date_range(session=session, 
+                                                        date_range=DateRange(start_date=start_date, end_date=end_date))
+    
+
+
+    async def update_drive(session: AsyncSession, 
+                           drive_id: int , 
+                           data: DriveUpdate) -> None | Drive:
+        
+        logger.info(f"Updating drive with id: {drive_id}")
+
+        drive = await DriveRepository.update_drive(drive_id = drive_id,
+                                                   session = session,
+                                                   data=data)
+        if not drive:
+            logger.warning(f"Drive with id: {drive_id} not found")
+            return None
+        else:
+            logger.info(f"Drive with id: {drive_id} updated successfully")
+            return drive
