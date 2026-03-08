@@ -5589,3 +5589,147 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open datab
 2026-03-08 22:15:25,324 [INFO] [global_logger] DetectModels initialized successfully
 2026-03-08 22:15:25,353 [INFO] [global_logger] Initializing DetectModels...
 2026-03-08 22:15:26,734 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:27:22,565 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:27:24,223 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:27:24,254 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:27:25,626 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:27:30,198 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:27:31,904 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:27:31,904 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:27:32,325 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:27:33,318 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:27:34,120 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:27:34,155 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:27:35,798 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:27:53,125 [INFO] [global_logger] Login user :email='admin@example.com' password='hashed_passworSuperSecure123d'
+2026-03-08 22:27:53,125 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-03-08 22:27:53,271 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:27:53,976 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:27:54,037 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:27:54,037 [INFO] [global_logger] Detected plate: B 2228HM
+2026-03-08 22:27:54,056 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:27:54,064 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:27:54,086 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:27:54,088 [WARNING] [global_logger] Car with plate B 2228HM has not paid for last parking
+2026-03-08 22:27:54,354 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:27:54,354 [INFO] [global_logger] Getting drive with id: 1
+2026-03-08 22:27:54,860 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:27:54,860 [INFO] [global_logger] Updating drive with id: 1
+2026-03-08 22:27:54,864 [INFO] [global_logger] Drive with id: 1 updated successfully
+2026-03-08 22:27:55,375 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:27:55,386 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:27:55,396 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:27:55,398 [INFO] [global_logger] Authorization drive out complete access permision
+2026-03-08 22:27:55,399 [INFO] [global_logger] Getting drives with plate: B 2228HM
+2026-03-08 22:27:55,400 [INFO] [global_logger] Updating drive with id: 1
+2026-03-08 22:27:55,404 [INFO] [global_logger] Drive with id: 1 updated successfully
+2026-03-08 22:27:55,875 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:27:55,875 [INFO] [global_logger] Getting drives with plate: B 2228HM
+2026-03-08 22:27:56,383 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:27:56,383 [INFO] [global_logger] Getting drives with date range: 2026-03-08 22:27:53.114351 - 2026-03-08 22:27:56.378665
+2026-03-08 22:27:56,390 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:27:56,390 [INFO] [global_logger] Deleting drive with id: 1
+2026-03-08 22:27:56,393 [INFO] [global_logger] Drive with id: 1 deleted successfully
+2026-03-08 22:28:06,208 [INFO] [global_logger] Login user :email='admin@example.com' password='hashed_passworSuperSecure123d'
+2026-03-08 22:28:06,208 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-03-08 22:28:06,308 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:28:06,323 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:28:06,344 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:28:06,344 [INFO] [global_logger] Detected plate: B 2228HM
+2026-03-08 22:28:06,360 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:28:06,370 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:28:06,385 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:28:06,387 [WARNING] [global_logger] Car with plate B 2228HM has not paid for last parking
+2026-03-08 22:28:07,395 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:28:07,395 [INFO] [global_logger] Getting drive with id: 1
+2026-03-08 22:28:07,900 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:28:07,901 [INFO] [global_logger] Updating drive with id: 1
+2026-03-08 22:28:07,904 [INFO] [global_logger] Drive with id: 1 updated successfully
+2026-03-08 22:28:08,410 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:28:08,422 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:28:08,437 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:28:08,439 [INFO] [global_logger] Authorization drive out complete access permision
+2026-03-08 22:28:08,440 [INFO] [global_logger] Getting drives with plate: B 2228HM
+2026-03-08 22:28:08,442 [INFO] [global_logger] Updating drive with id: 1
+2026-03-08 22:28:08,443 [INFO] [global_logger] Drive with id: 1 updated successfully
+2026-03-08 22:28:08,911 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:28:08,911 [INFO] [global_logger] Getting drives with plate: B 2228HM
+2026-03-08 22:28:09,415 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:28:09,416 [INFO] [global_logger] Getting drives with date range: 2026-03-08 22:28:06.197246 - 2026-03-08 22:28:09.414258
+2026-03-08 22:28:09,420 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:28:09,420 [INFO] [global_logger] Deleting drive with id: 1
+2026-03-08 22:28:09,421 [INFO] [global_logger] Drive with id: 1 deleted successfully
+2026-03-08 22:34:50,233 [INFO] [global_logger] Login user :email='admin@example.com' password='hashed_passworSuperSecure123d'
+2026-03-08 22:34:50,233 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-03-08 22:34:50,315 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:34:50,437 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:34:50,463 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:34:50,463 [INFO] [global_logger] Detected plate: B 2228HM
+2026-03-08 22:34:50,476 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:34:50,490 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:34:50,504 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:34:50,505 [WARNING] [global_logger] Car with plate B 2228HM has not paid for last parking
+2026-03-08 22:34:51,400 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:34:51,400 [INFO] [global_logger] Getting drive with id: 1
+2026-03-08 22:34:51,905 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:34:51,905 [INFO] [global_logger] Updating drive with id: 1
+2026-03-08 22:34:51,908 [INFO] [global_logger] Drive with id: 1 updated successfully
+2026-03-08 22:34:52,416 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:34:52,424 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:34:52,437 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:34:52,439 [INFO] [global_logger] Authorization drive out complete access permision
+2026-03-08 22:34:52,440 [INFO] [global_logger] Getting drives with plate: B 2228HM
+2026-03-08 22:34:52,441 [INFO] [global_logger] Updating drive with id: 1
+2026-03-08 22:34:52,443 [INFO] [global_logger] Drive with id: 1 updated successfully
+2026-03-08 22:34:52,917 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:34:52,917 [INFO] [global_logger] Getting drives with plate: B 2228HM
+2026-03-08 22:34:53,421 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:34:53,421 [INFO] [global_logger] Getting drives with date range: 2026-03-08 22:34:50.224648 - 2026-03-08 22:34:53.419542
+2026-03-08 22:34:53,426 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:34:53,426 [INFO] [global_logger] Deleting drive with id: 1
+2026-03-08 22:34:53,428 [INFO] [global_logger] Drive with id: 1 deleted successfully
+2026-03-08 22:36:25,618 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:36:27,331 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:36:27,360 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:36:28,742 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:36:29,560 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:36:31,270 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:36:31,302 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:36:32,662 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:36:37,101 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:36:38,693 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:36:38,694 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:36:39,254 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:36:40,132 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:36:40,953 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:36:40,983 [INFO] [global_logger] Initializing DetectModels...
+2026-03-08 22:36:42,350 [INFO] [global_logger] DetectModels initialized successfully
+2026-03-08 22:36:52,419 [INFO] [global_logger] Login user :email='admin@example.com' password='hashed_passworSuperSecure123d'
+2026-03-08 22:36:52,419 [INFO] [global_logger] Logging user with email: admin@example.com
+2026-03-08 22:36:52,565 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:36:53,073 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:36:53,159 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:36:53,160 [INFO] [global_logger] Detected plate: B 2228HM
+2026-03-08 22:36:53,180 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:36:53,187 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:36:53,196 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:36:53,197 [WARNING] [global_logger] Car with plate B 2228HM has not paid for last parking
+2026-03-08 22:36:53,648 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:36:53,648 [INFO] [global_logger] Getting drive with id: 1
+2026-03-08 22:36:54,154 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:36:54,154 [INFO] [global_logger] Updating drive with id: 1
+2026-03-08 22:36:54,157 [INFO] [global_logger] Drive with id: 1 updated successfully
+2026-03-08 22:36:54,664 [INFO] [global_logger] Starting full detection pipeline
+2026-03-08 22:36:54,671 [INFO] [global_logger] Detected 1 plates in the image
+2026-03-08 22:36:54,684 [INFO] [global_logger] Detection pipeline completed: 1 plates processed
+2026-03-08 22:36:54,685 [INFO] [global_logger] Authorization drive out complete access permision
+2026-03-08 22:36:54,686 [INFO] [global_logger] Getting drives with plate: B 2228HM
+2026-03-08 22:36:54,688 [INFO] [global_logger] Updating drive with id: 1
+2026-03-08 22:36:54,690 [INFO] [global_logger] Drive with id: 1 updated successfully
+2026-03-08 22:36:55,165 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:36:55,166 [INFO] [global_logger] Getting drives with plate: B 2228HM
+2026-03-08 22:36:55,671 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:36:55,671 [INFO] [global_logger] Getting drives with date range: 2026-03-08 22:36:52.406318 - 2026-03-08 22:36:55.669516
+2026-03-08 22:36:55,677 [INFO] [global_logger] User authenticated: admin@example.com
+2026-03-08 22:36:55,678 [INFO] [global_logger] Deleting drive with id: 1
+2026-03-08 22:36:55,680 [INFO] [global_logger] Drive with id: 1 deleted successfully

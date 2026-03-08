@@ -16,7 +16,8 @@ class UserRepository:
         user = User(
             username=data.username,
             email=data.email,
-            password=data.password, 
+            password=data.password,
+            role=data.role,
             registration_date=data.registration_date
         )
         session.add(user)

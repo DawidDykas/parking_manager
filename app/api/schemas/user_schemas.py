@@ -29,6 +29,11 @@ class UserCreate(BaseUser):
         max_length=100,
         example="SuperSecure123!"
     )
+    role: str = Field(
+        default="user",
+        description="User role (user, admin, operator)",
+        example="user"
+    )
     registration_date: None | datetime = Field(
         default_factory=datetime.utcnow,
         description="Date and time when the user registered (auto-set to now)"
@@ -40,6 +45,7 @@ class UserCreate(BaseUser):
                 "username": "alice_wonder",
                 "email": "alice@example.com",
                 "password": "SuperSecure123!",
+                "role": "user",
                 "registration_date": "2026-02-11T15:30:00"
             }
         }
@@ -50,6 +56,7 @@ class UserUpdate(BaseModel):
     username: None | str = Field(None, min_length=3, max_length=50, example="alice_new")
     email: None | EmailStr = Field(None, example="alice.new@example.com")
     password: None | str = Field(None, min_length=6, max_length=100, example="NewPass456!")
+    role: None | str = Field(None, description="User role (user, admin, operator)", example="user")
 
 # class UserDelete(BaseModel):
 #     id: int = Field(..., description="ID of the user to remove", example=42)
@@ -65,6 +72,7 @@ class UserGetByEmail(BaseModel):
 # ------------------------
 class UserResponse(BaseUser):
     id: int = Field(..., description="Unique identifier assigned to the user", example=42)
+    role: str = Field(..., description="User role", example="user")
     registration_date: datetime = Field(..., description="Timestamp when the user registered")
 
     model_config = ConfigDict(
@@ -74,6 +82,7 @@ class UserResponse(BaseUser):
                 "id": 42,
                 "username": "alice_wonder",
                 "email": "alice@example.com",
+                "role": "user",
                 "registration_date": "2026-02-11T15:30:00"
             }
         }
