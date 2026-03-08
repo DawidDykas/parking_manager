@@ -2,6 +2,13 @@
 
 
 
+## v0.7.0 (2026-03-08)
+
+### Feature
+
+* feat: drive api ([`6c9f5ba`](https://github.com/DawidDykas/parking_manager/commit/6c9f5ba3962f93f623d10b32d0cdc4a5a397af94))
+
+
 ## v0.6.0 (2026-03-07)
 
 ### Feature
