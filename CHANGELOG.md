@@ -2,6 +2,17 @@
 
 
 
+## v0.8.0 (2026-03-08)
+
+### Feature
+
+* feat: modification of the authorization structure ([`b400e5e`](https://github.com/DawidDykas/parking_manager/commit/b400e5e197423bed043a58a988df5c733388a725))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/DawidDykas/parking_manager ([`7551700`](https://github.com/DawidDykas/parking_manager/commit/7551700f44014bb27791b26bcbcdf5517610165c))
+
+
 ## v0.7.0 (2026-03-08)
 
 ### Feature
