@@ -138,13 +138,7 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-### 2) Start Redis
-
-```bash
-redis-server
-```
-
-### 3) Start the application
+### 2) Start the application
 
 ```bash
 python -m app.api.main
@@ -157,18 +151,8 @@ After startup, API docs are available at:
 
 ## Database Migrations
 
-Apply migrations:
-
-```bash
-alembic upgrade head
-```
-
-Generate a new migration:
-
-```bash
-alembic revision --autogenerate -m "change_description"
-alembic upgrade head
-```
+An initial migration of the Alembic database was implemented, creating the database with the first user. 
+This allowed for the database to be expanded based on project needs.
 
 ## API Usage
 
