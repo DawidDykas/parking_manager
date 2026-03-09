@@ -2,6 +2,17 @@
 
 
 
+## v0.9.0 (2026-03-09)
+
+### Feature
+
+* feat: Modify fastapi ([`e3f4ccc`](https://github.com/DawidDykas/parking_manager/commit/e3f4ccca2d1448b91c9e648f030139fe2c6bef69))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/DawidDykas/parking_manager ([`093c09d`](https://github.com/DawidDykas/parking_manager/commit/093c09dc6c1f35daff2a1e9f2d5bad027ee462ba))
+
+
 ## v0.8.0 (2026-03-08)
 
 ### Feature
