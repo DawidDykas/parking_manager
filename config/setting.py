@@ -41,9 +41,18 @@ class CelerySetting(BaseSettings):
 
 
 
-# print(Path(__file__).resolve().parent / ".env")
+class FastAPISettings(BaseSettings):
+    PORT : int = 8000
+    HOST : str = "127.0.0.1"
+
+    model_config = SettingsConfigDict(
+        env_file = Path(__file__).resolve().parent / ".env",
+        case_sensitive=False,
+        extra="ignore" 
+    )
 
 
 database_settings = DatabaseSettings()
+fastapi_settings = FastAPISettings()
 security_settings = SecuritySettings()
 celery_settings = CelerySetting() 

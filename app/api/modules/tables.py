@@ -13,7 +13,6 @@ class User(Base):
     username: Mapped[str] = mapped_column(nullable=False)
     email: Mapped[str] = mapped_column(unique=True, nullable=False)
     password: Mapped[str] = mapped_column(nullable=False)
-    role: Mapped[str] = mapped_column(default="user", nullable=False)
     registration_date: Mapped[datetime] = mapped_column(nullable=False, default=datetime.utcnow)
 
 

@@ -84,8 +84,7 @@ class UserServices:
         token = create_access_token({
             "id": user.id,
             "username": user.username,
-            "email": user.email,
-            "role": user.role
+            "email": user.email
         })
         return token
 
@@ -97,7 +96,6 @@ class UserServices:
         new_access_token = create_access_token({
             "id": user.id,
             "email": user.email,
-            "username": user.username,
-            "role": user.role
+            "username": user.username
         })
         return new_access_token

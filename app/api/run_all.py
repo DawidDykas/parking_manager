@@ -2,7 +2,7 @@ import subprocess
 import sys
 import time
 from sqlalchemy.exc import OperationalError
-
+from config.setting import fastapi_settings
 
 
 def init_db_first_user():
@@ -38,9 +38,9 @@ def start_fastapi():
             "app.api.main:app",
             "--reload",
             "--host",
-            "127.0.0.1",
+            fastapi_settings.HOST,
             "--port",
-            "8000",
+            str(fastapi_settings.PORT),
         ]
     )
 

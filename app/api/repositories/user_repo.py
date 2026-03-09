@@ -16,12 +16,11 @@ class UserRepository:
         user = User(
             username=data.username,
             email=data.email,
-            password=data.password,
-            role=data.role,
+            password=data.password, 
             registration_date=data.registration_date
         )
         session.add(user)
-        await session.flush() # Do walidacji id bez tego wywali
+        await session.flush()
 
         return user
 
